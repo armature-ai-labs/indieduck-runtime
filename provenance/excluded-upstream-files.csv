@@ -1,0 +1,136 @@
+path,git_blob,reason
+.github/workflows/_build-release.yml,8647771e37e20a210f6cdac0bdb2830b6a6b55d2,Upstream automation or generated cache omitted
+.github/workflows/_promote-release.yml,da300c4d1505ecb16c36f642e9df6e6ba8fa87ae,Upstream automation or generated cache omitted
+.github/workflows/ci.yml,58d53147a877b7eb6b4b049d84162b50a9ff3593,Upstream automation or generated cache omitted
+.github/workflows/dev.yml,8c724efdc83dcd4b43fe050abfb3953442d74327,Upstream automation or generated cache omitted
+.github/workflows/promote.yml,96e0a4ce0b50a99de8ebc18baf80668a283c2226,Upstream automation or generated cache omitted
+.github/workflows/prune-dev-releases.yml,6e2aae9161c7a6b3def7f0babcb137c37c4fb29b,Upstream automation or generated cache omitted
+.github/workflows/release.yml,3014d88348390307be4c8f98bb688c3b3671bfe6,Upstream automation or generated cache omitted
+CONTRIBUTING.md,c6a2fd8a749f2cdd9589a2f99a0c65c07237e8b0,"Nonessential upstream configuration, documentation or fixture omitted"
+README.md,8f078afb8821233e1b73bc5012e00ecf842c4d53,"Nonessential upstream configuration, documentation or fixture omitted"
+btd/systemd/btd.service,85cfd27bf0284f24e3b127b2b219ffc1560ef238,"Nonessential upstream configuration, documentation or fixture omitted"
+btd/systemd/sysusers.d/btd.conf,281a377606f68051319dacaab880d3a42b8bdb95,"Nonessential upstream configuration, documentation or fixture omitted"
+configd/systemd/configd.service,926839501a776a12ef4950d8190d3fd27a7aa9f3,"Nonessential upstream configuration, documentation or fixture omitted"
+configd/systemd/sysusers.d/README,5e8dc50075030d8a20bbe392669015c4919eaf04,"Nonessential upstream configuration, documentation or fixture omitted"
+deploy/README.md,d81d750b603940c5a95128da014e5ac3e0813674,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+deploy/audio/aic3104-i2c3.dts,69d9526b106c3f088b83373f33e707ee99f18eb9,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+deploy/audio/aic3104-init.sh,4c2a0db617a8b3c2d2475e5ebf977564b6582ce1,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+deploy/audio/aic3x-dkms/Makefile,45b5c60efb9cca93616bd9bc7d11a0c668616590,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+deploy/audio/aic3x-dkms/dkms.conf,d794398abe2d7d9c6fd3a28657df9a2881ec0bf2,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+deploy/audio/aic3x-dkms/tlv320aic3x-i2c.c,d7e94d564dbf7e5dd9a76f81598bcaa94bccd413,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+deploy/audio/aic3x-dkms/tlv320aic3x.c,08938801daec26e4b1adcb1a8147e31e8ef0439d,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+deploy/audio/aic3x-dkms/tlv320aic3x.h,14298f9e6d9b3cb723c246935ed531302439fc3b,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+deploy/audio/i2c3-pihat.dts,40ae6d4a573caeb971fdc79802e196500b6635b3,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+deploy/dev-key/README.md,c5256bcb96a2840cd58ed92b9806a4768ad36d1d,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+deploy/dev-key/team.dev.pub,05ba99f404d1d6ade7c117286c56f4d82e25ff2c,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+deploy/journald.conf.d/10-robot.conf,dcaff843d9b9db9fe12aac9a846c157c4ab2109f,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+deploy/overlays/i2c4-imu.dts,88a797a69494820e0d5fb9091b50a07ffbf0d2cc,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+deploy/overlays/rk3568-npu-enable.dts,6701f0a2e0859d5a16e342d3070e6d22e401e933,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+deploy/robotd.toml,4b61fb0b2d94d78cefcaeab7d997ecabf19e051f,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+deploy/robotd.toml.walk,e387d39ea2fd06040fc98c8ebd4cf33842678d85,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+deploy/trusted_keys/README.md,71a1ba680fdcd6daf4b333f4cd4bccfa565798b8,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+deploy/trusted_keys/release-1.pub,19e60a9562224156270f0358967160f508042838,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+deploy/trusted_keys/release-2.pub,bbf58b87c806cd1b055e25cfcc3ebe54ef9410fd,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+deploy/trusted_keys/release-3.pub,5b6a998d7b03c5483a0ea146c9d4011f101cb8cc,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+deploy/updater.toml,23956200da3661be857ae829dedfb03d9fa81289,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/README.md,82deb39486ed21266063a4013e49900d1cc4e5a6,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/design/app-path-design.md,361b8df807fc8a05692d751c587952083ce9fba1,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/design/architecture.md,033a0e857ac6c77ed35341e931af7551ccd28364,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/design/boot-recovery-net.md,853232015f8a285a39ad5069948622e88de70cbe,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/design/hd1910-i2c-imu-migration.md,a5a74ff8540154d34ccd24be3a49f0956f9d3029,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/design/imu-env-setup.md,50f656d6909e0f59468381da17d8d1ad5393e631,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/design/remote-webrtc.md,67f4b00e2a9ce7a4b2d0e504a1fd729f67a15964,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/design/restart-order.md,04b2003ef759acca3043d5f7508198337a06b124,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/design/robotd-design.md,bcb9d6a6b2dcf560a67ed90985c2831f862fc022,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/design/updater-design.md,f49254d5ad78e9d29f1bfe997336603c52c89dfe,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/design/webrtc-console.md,35d608222ca5cfaee9233bd166cef851d6d5aa57,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/ideas/autonomous_behavior.md,001805256839f92856679d557c798d6efdbaf2ab,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/microduck-fact-check.md,305dec55eebe9b09cd1a892294d88eecb1cd18a3,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/microduck-hardware-architecture-blog.md,00040d3fbb68dc4077b857445a0641c0ca8cfc63,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/onboarding.md,2391ee539cae312f69da446e7eeed4fd87e81f7f,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/project/ci-setup.md,f936b876d1575248a3400b325ae16a82d24051a2,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/project/install-path-gap.md,2ef76259704409568c8c2a542889f04a35264c9c,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/project/media-bringup.md,67cef93480b4fe39918481fb9304c891940a6a2d,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/project/npu-bringup.md,326f4c8ab6434dd6a7b84df7183b83f2e8ed36da,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/project/pad-minimal-pairing.md,915a60c4ee1fae2a1fa47442e3a67c1d45658b87,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/project/roadmap.md,72ead9b15fcf402623c99a1d8cc0b5b8e400338e,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/project/slice-2-bringup.md,29f856e499e13266a38817263d26e4ddf9773fc0,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/project/update-over-ble.md,33d825d5e2d59167ce3b8b9e8b88358b802a4607,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/robot/bringup-examples.md,5a1321f30176bfebb5f9056ca22783a0c551d4e2,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/robot/cheatsheet-dev.md,ed354bf60891903eaf1cc52347ba28f7a4be20e0,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/robot/cheatsheet.md,5ebfd195a5deb68434a45ce63fa763fd512b57be,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/robot/dev-push.md,f9d0b949cc799f2d924b1b685342a20471ed706f,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/robot/duckctl.md,a5b4d7244e597b3f336e1ab3158db0032b9e0f3b,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/robot/install-by-hand.md,cd59fb6ba1a622e3393c57c9cdb82a770ada339a,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/robot/install-dev.md,e7d73f3f42f7b439f6cd2c4a00f067ece3f053fa,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+docs/robot/pair-a-gamepad.md,072a4eb2012c3d8e84b4e64b9906f8995cf93123,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+duck-detect/models/duck_detect.onnx,42d1e6fc848c52d237618f3965fbf46024b183d7,Model weights or music rights not separately verified
+duck-detect/models/duck_detect.rknn,49fce2e23be9044e8865c0eee2a2a4e731d865f2,Model weights or music rights not separately verified
+hooks/postinstall,776b4572aedfb9c9bf94bb4c10250cb98a406a74,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+hooks/preinstall.in,270821882bd3c76a32436585c57c2fb428312d17,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+kinematics/assets/alpha/robot_walk.xml,96b702a7c0783dcadd4c12b12901f3f60251d41e,Robot geometry/model asset omitted pending per-path reuse rights
+kinematics/tests/fixtures/fk_alpha.json,24109f20a12a0c0397105abd9f25320333403017,"Nonessential upstream configuration, documentation or fixture omitted"
+mediad/systemd/mediad.service,0e86e94748a3c15ccb722b62da441c6809ad59d0,"Nonessential upstream configuration, documentation or fixture omitted"
+mediad/systemd/sysusers.d/mediad.conf,62fe095db72aa6c7347db085c062639c4d75ffad,"Nonessential upstream configuration, documentation or fixture omitted"
+padd/systemd/padd.service,26348fca91295aa9d111c98c07a0bcb6e6e75cf1,"Nonessential upstream configuration, documentation or fixture omitted"
+padd/systemd/sysusers.d/padd.conf,32fc32a7c4fa5875341dd3fe95cfe5512211ab3e,"Nonessential upstream configuration, documentation or fixture omitted"
+pet-detect/README.md,4de5189847409e581b8b7bb01febc7ee8afba0ca,"Nonessential upstream configuration, documentation or fixture omitted"
+pet-detect/models/pet_detect.onnx,3e37441d55f2dedd170dc9e9913e610744e31d5e,Model weights or music rights not separately verified
+policies/README.md,a1760e601d1150e19959f28efc4f72d5519078a2,"Nonessential upstream configuration, documentation or fixture omitted"
+policies/alpha_ground_pick.onnx,635a6387610e459eb676079aef5efde6de8a3fed,Model weights or music rights not separately verified
+policies/alpha_sitstand.onnx,938c0c23f9f15d17bdaa6040a8cec8656c8befbc,Model weights or music rights not separately verified
+policies/alpha_stand.onnx,37c448d56ca3d72413fb725fec00ba49c84fee94,Model weights or music rights not separately verified
+policies/alpha_walking.onnx,fce2c795f852983611c84e46d7326f937e8a1aa4,Model weights or music rights not separately verified
+policies/ball_kick_left.onnx,d22bdfccf1be88355ffaaeba8fc1d7e410be8839,Model weights or music rights not separately verified
+policies/ball_kick_right.onnx,7977185bbb6f2cbad46bb241396956124b7d500d,Model weights or music rights not separately verified
+policies/roller.onnx,1f678c4d0e62c6d890e0a84f43f5c9fa6d0fe55c,Model weights or music rights not separately verified
+policies/roller_crouch.onnx,b94ed3a7a7a7e5170888658e0a35e822b0778e35,Model weights or music rights not separately verified
+policies/roulade.onnx,395391f3b7bd76837b9f1f6108c9e2aa918fc1e9,Model weights or music rights not separately verified
+robotctl/assets/duck.bin,9ad4e3b9b879b7caf97155d3e48156043c798dac,Robot geometry/model asset omitted pending per-path reuse rights
+robotd/systemd/robotd.service,c2dc06aa808b860e58ab58b40ce123bbec84b5e3,"Nonessential upstream configuration, documentation or fixture omitted"
+scripts/__pycache__/provision-hls.cpython-312.pyc,77234531ec0b4aa164ff437547a8696cf265265d,Upstream automation or generated cache omitted
+scripts/bake-duck-mesh.py,cd3bcaab9220d3368350c08e21dac571e7b493c5,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+scripts/board-test.sh,00546b5d784173f1952320a6b5773547654bf5cc,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+scripts/ci-release-notes.sh,9b45ce06b4845b0d172e2796a59e626c2f366383,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+scripts/cross-sysroot.sh,30a11769897d48e41b9ecd0dbb927913c2eed041,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+scripts/dev-build.Dockerfile,7c957ecc1946b92966961cafeefad75a7f842cfd,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+scripts/dev-push.sh,ee42b6d9b77478952838a8b1d902534ed46e459a,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+scripts/install.sh,ca7fe2ac1ffd7987b63c839aa79ef2895545dd88,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+scripts/migrate-network.sh,22df828fb09c97e61790981c6be8c740958060ff,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+scripts/pad-link-test.sh,fee09201423cc5530f8678d6fbd3f62f425fd61c,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+scripts/pad-stack-report.sh,da98e5464c2d6dd9149654d83aeb7f8e3d98b580,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+scripts/provision-board.sh,94757128cc267df83705d9c1aac807f1b2c576a5,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+scripts/provision-hls.py,688318dcfac4ff392a96c7a9a7bc558b3b80fad0,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+scripts/provision.sh,50900ee4ac23c6bd6632ef77ea7662445c80bd9b,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+scripts/rkaiq-modinfo-shim.c,43d321db0bb5e73250d05bb5a44a4ff572d4f3fc,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+scripts/robot-boot-check,d4524eddf8fc0624acf54b9bda3fa2a3d2337bc2,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+scripts/robot-rescue,37cb0dca9e8ae9a96adbee605dff4ef290df8db0,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+scripts/setup-board.sh,9c57734a0b085a999f950a64938e1eaa3243a554,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+scripts/setup-gstreamer.sh,60a32533b2b80e2f3a5c2eb81ca67b1049f86504,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+scripts/setup-login.sh,a59e430b513f37058fe5ca3134e4081377e569b2,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+scripts/setup-npu.sh,b34c28d597a0ebd441caf48fbf8acb9bbe04c69c,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+scripts/setup-rkaiq.sh,32b7bd729aa8ca7dfcd4e8dc76323ced5ee385dd,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+scripts/systemd-test.Dockerfile,0c8014076b25a5ebda9ebcd6971ee9960515267a,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+scripts/systemd-test.sh,7fad407c1b1b187a2ad47059d46ace48e8670bb1,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+sounds/scores/duck_strut.mid,8f6d31ab4bbb5b052aab59e98ba7052caad5c396,Model weights or music rights not separately verified
+sounds/scores/outer_wilds.mid,ad65142a38397380db30e677739406c169e93bfe,Model weights or music rights not separately verified
+sounds/scores/wistful.duckscore,29d970869fb8b03182f9c84e5f346539dbd684bb,Model weights or music rights not separately verified
+source-lessons/assets/marked.min.js,4052d1b49e3127437ca06611a0b0603769babd65,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+source-lessons/build.mjs,020d1e0565d3612740ddf00c23a14a20de3ca574,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+source-lessons/index.html,cb28a3b892cb2b4af854a15dc6fbe2aaa4a09304,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+source-lessons/lessons/00-nav.md,818c7314cc49123de9211012d7da0415bddeb273,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+source-lessons/lessons/01-bringup.md,a12ccdfad98d6f765063389970d968efc78c313c,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+source-lessons/lessons/02-model-io.md,c9358d9e2b16a89170026444fc6464d084e5da8c,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+source-lessons/lessons/03-bus-imu.md,780d0bdf61da89dbdb2420db01a941cf970b7e74,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+source-lessons/lessons/04-obs-policy.md,550b4d3578232ec4cc064548d02d0877eaa8fdfd,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+source-lessons/lessons/05-safety-fall.md,dcab7b11060a172e5b5beb27f5e873a57f94cb5d,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+source-lessons/lessons/06-robotd-loop1.md,45b92a32fe61459ea9c473350fabc0bb8e2af572,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+source-lessons/lessons/07-intents-config.md,1402bd1f6a0fefdfaa4dced8da24d8a6affede27,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+source-lessons/lessons/08-ipc-cli-apply.md,9fea88a4165acf5828499b4a707f307edabf1957,"Upstream deployment, documentation or installation tooling omitted from initial source snapshot"
+tof/systemd/sysusers.d/tofd.conf,64e67b166416648635bdd267f9518c1d04db1a1e,"Nonessential upstream configuration, documentation or fixture omitted"
+tof/systemd/tofd.service,2ba9c27a0f9dee752a4a0c0fc3c6c20562d020bb,"Nonessential upstream configuration, documentation or fixture omitted"
+updater/systemd/robot-boot-check.service,92779079016534ff32f943ae70e1ddccab1fd057,"Nonessential upstream configuration, documentation or fixture omitted"
+updater/systemd/robot-boot-check.timer,2eedf2aa3fd1103c272f5c28e7fe765cbf146363,"Nonessential upstream configuration, documentation or fixture omitted"
+updater/systemd/sysusers.d/robot.conf,79b19b091c3313167ac67948a1c2e546db479cfc,"Nonessential upstream configuration, documentation or fixture omitted"
+updater/systemd/updaterd.service,c44b51fda9be0177ee1f9a80ec7c1001556d22da,"Nonessential upstream configuration, documentation or fixture omitted"
+updater/updater.example.toml,0b608518f8c736c1611f64e26a11be82efb42312,"Nonessential upstream configuration, documentation or fixture omitted"

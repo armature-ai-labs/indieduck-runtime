@@ -1,0 +1,27 @@
+[
+  {
+    "path": "UPSTREAM.md",
+    "kind": "IndieDuck snapshot preparation documentation",
+    "sha256": "e662c0d065cb64b07fa812514664d9f3fb616b90591837826860c9fc4096bc2c"
+  },
+  {
+    "path": "THIRD_PARTY_NOTICES.md",
+    "kind": "IndieDuck snapshot preparation documentation",
+    "sha256": "0873976ef83fd79a4b5e286b0aa53c7476dcb33236c2307c4bb4645a113f7f70"
+  },
+  {
+    "path": "VALIDATION.md",
+    "kind": "IndieDuck snapshot preparation documentation",
+    "sha256": "1c82074e465d7b52dea8440e2b0ddeb32fa182687e5dc5695f6566f24edae14e"
+  },
+  {
+    "path": "vendor/bisync/LICENSE-APACHE",
+    "kind": "Pinned third-party license notice supplement",
+    "sha256": "24f387a31427dbe8d24afe896feaab2a6b5b2df8b04789c019660e6266be8e33"
+  },
+  {
+    "path": "vendor/bisync/LICENSE-MIT",
+    "kind": "Pinned third-party license notice supplement",
+    "sha256": "dc9bc2fe5bc93e9343cd71cac3ab0ef1e931712abc47b0cb80d47023d773932c"
+  }
+]

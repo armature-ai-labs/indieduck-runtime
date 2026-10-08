@@ -1,0 +1,21 @@
+{
+  "repository": "https://github.com/JoyandAI/microduck",
+  "commit": "b6b658a6e2bb888302236f8a5b35844b53685409",
+  "tree": "https://github.com/JoyandAI/microduck/tree/b6b658a6e2bb888302236f8a5b35844b53685409",
+  "snapshot_kind": "filtered code import, no Git history included",
+  "source_files_modified": false,
+  "github_parent": "https://github.com/pollen-robotics/microduck",
+  "included_files": 183,
+  "excluded_files": 135,
+  "modifications_file": "provenance/modifications.json",
+  "comparison_ancestry": {
+    "repo": "microduck",
+    "joy_pin": "b6b658a6e2bb888302236f8a5b35844b53685409",
+    "pollen_comparison_pin": "c2b0a213abee69e038414fd3cc16b7c685ab4c0d",
+    "pollen_pin_is_ancestor": false,
+    "merge_base": "2c61dcc1f03440541cdc0729f7a375b2a9ea3005",
+    "commits_from_base_to_joy": "12",
+    "commits_from_base_to_pollen": "559",
+    "merge_base_description": "2c61dcc1f03440541cdc0729f7a375b2a9ea3005 2026-09-02T14:30:27+02:00 Merge pull request #200 from pollen-robotics/health-names-a-crash-loop"
+  }
+}

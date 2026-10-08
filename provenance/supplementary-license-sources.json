@@ -1,0 +1,16 @@
+[
+  {
+    "file": "LICENSE-APACHE",
+    "repository": "https://github.com/JM4ier/bisync",
+    "commit": "be3a0a6255a0af592e66be8614a149151f67fdf5",
+    "url": "https://raw.githubusercontent.com/JM4ier/bisync/be3a0a6255a0af592e66be8614a149151f67fdf5/LICENSE-APACHE",
+    "sha256": "24f387a31427dbe8d24afe896feaab2a6b5b2df8b04789c019660e6266be8e33"
+  },
+  {
+    "file": "LICENSE-MIT",
+    "repository": "https://github.com/JM4ier/bisync",
+    "commit": "be3a0a6255a0af592e66be8614a149151f67fdf5",
+    "url": "https://raw.githubusercontent.com/JM4ier/bisync/be3a0a6255a0af592e66be8614a149151f67fdf5/LICENSE-MIT",
+    "sha256": "dc9bc2fe5bc93e9343cd71cac3ab0ef1e931712abc47b0cb80d47023d773932c"
+  }
+]

@@ -1,0 +1,81 @@
+{
+  "scope": "Static preparation only; no build, robot connection, training, simulation or physical execution claimed",
+  "upstream_source_files_verified": 183,
+  "source_files_modified": 0,
+  "python_ast_files": 1,
+  "python_version": "3.14.6",
+  "python_ast_errors": [],
+  "missing_rust_include_assets": [
+    {
+      "path": "kinematics/tests/fk_against_mujoco.rs",
+      "line": 37,
+      "required_asset": "kinematics/tests/fixtures/fk_alpha.json"
+    },
+    {
+      "path": "kinematics/src/lib.rs",
+      "line": 36,
+      "required_asset": "kinematics/assets/alpha/robot_walk.xml"
+    },
+    {
+      "path": "robotd-params/src/lib.rs",
+      "line": 1372,
+      "required_asset": "deploy/robotd.toml"
+    },
+    {
+      "path": "sounds/src/chorale/mod.rs",
+      "line": 481,
+      "required_asset": "sounds/scores/wistful.duckscore"
+    },
+    {
+      "path": "sounds/src/chorale/mod.rs",
+      "line": 491,
+      "required_asset": "sounds/scores/outer_wilds.mid"
+    },
+    {
+      "path": "sounds/src/chorale/mod.rs",
+      "line": 507,
+      "required_asset": "sounds/scores/duck_strut.mid"
+    },
+    {
+      "path": "robotctl/src/configure.rs",
+      "line": 889,
+      "required_asset": "deploy/robotd.toml"
+    },
+    {
+      "path": "robotctl/src/duck.rs",
+      "line": 24,
+      "required_asset": "robotctl/assets/duck.bin"
+    },
+    {
+      "path": "updater/src/config.rs",
+      "line": 446,
+      "required_asset": "updater/updater.example.toml"
+    },
+    {
+      "path": "updater/src/config.rs",
+      "line": 495,
+      "required_asset": "updater/updater.example.toml"
+    }
+  ],
+  "remaining_upstream_home_path_examples": [
+    {
+      "path": "duck-ipc-proto/src/lib.rs",
+      "line": 2250,
+      "classification": "Remaining upstream example or conventional target-device path; inspect before deployment"
+    },
+    {
+      "path": "duck-ipc-proto/src/lib.rs",
+      "line": 3787,
+      "classification": "Remaining upstream example or conventional target-device path; inspect before deployment"
+    },
+    {
+      "path": "robotctl/src/main.rs",
+      "line": 4129,
+      "classification": "Remaining upstream example or conventional target-device path; inspect before deployment"
+    }
+  ],
+  "credential_pattern_hits": [],
+  "forbidden_assets_or_workflows": [],
+  "full_tests_run": false,
+  "cargo_metadata_offline_no_deps": "passed; 19 workspace members; not a compilation test"
+}
