@@ -58,12 +58,14 @@ const SETTLE: Duration = Duration::from_millis(1500);
 /// is how two ducks end up performing different songs at each other. That is also the right
 /// degradation for a mixed-version flock: an old duck near new ones stays politely quiet.
 const PIECE_WISTFUL: u8 = 1;
+#[cfg(feature = "bundled-scores")]
 const PIECE_DUCK_STRUT: u8 = 2;
-/// TEST ONLY — remove before release, with `Score::outer_wilds` and its asset.
-const PIECE_OUTER_WILDS: u8 = 3;
 
 /// Every piece a conductor may pick from.
-const PIECES: [u8; 3] = [PIECE_WISTFUL, PIECE_DUCK_STRUT, PIECE_OUTER_WILDS];
+#[cfg(feature = "bundled-scores")]
+const PIECES: [u8; 2] = [PIECE_WISTFUL, PIECE_DUCK_STRUT];
+#[cfg(not(feature = "bundled-scores"))]
+const PIECES: [u8; 0] = [];
 
 /// Whether this build can sing a piece — what `robot.chorale` validates a `--piece` pin
 /// against at the door.
@@ -83,9 +85,10 @@ pub fn piece_catalogue() -> String {
 /// The score for a piece id, or `None` for one this build does not know.
 fn piece(id: u8) -> Option<Score> {
     match id {
+        #[cfg(feature = "bundled-scores")]
         PIECE_WISTFUL => Some(Score::wistful()),
+        #[cfg(feature = "bundled-scores")]
         PIECE_DUCK_STRUT => Some(Score::duck_strut()),
-        PIECE_OUTER_WILDS => Some(Score::outer_wilds()),
         _ => None,
     }
 }
@@ -235,7 +238,7 @@ impl Chorale {
     /// duck picks if it ends up conducting; `None` falls back to the environment's pin, then
     /// the coin. Validated at the door by `robot.chorale`, so an unknown id never gets here.
     pub fn set_active(&mut self, active: bool, now: Instant, piece_pin: Option<u8>) {
-        if active {
+        if active && !PIECES.is_empty() {
             self.forced_piece = piece_pin
                 .filter(|id| piece(*id).is_some())
                 .or(self.env_piece);
@@ -244,6 +247,7 @@ impl Chorale {
     }
 
     fn set_active_inner(&mut self, active: bool, now: Instant) {
+        let active = active && !PIECES.is_empty();
         match (active, &self.state) {
             (true, State::Off) => {
                 tracing::warn!(register = self.register, id = self.id, "chorale: listening");
@@ -435,7 +439,7 @@ impl Chorale {
                     // ducks near each other, and deterministic under a test that controls the
                     // clock.
                     let pick = self.forced_piece.unwrap_or_else(|| {
-                        PIECES[(self.seconds(now) * 997.0) as u64 as usize % PIECES.len()]
+                        PIECES.get((self.seconds(now) * 997.0) as u64 as usize % PIECES.len().max(1)).copied().unwrap_or(0)
                     });
                     self.piece_id = pick;
                     self.score = piece(pick).expect("both built-in pieces exist");
@@ -630,8 +634,7 @@ pub fn head_expression(beats: f64, reach: f64) -> [f64; 4] {
     ]
 }
 
-#[cfg(test)]
-#[cfg(test)]
+#[cfg(all(test, feature = "bundled-scores"))]
 mod tests {
     use super::*;
 
@@ -827,7 +830,7 @@ mod tests {
     #[test]
     fn a_forced_piece_wins_the_coin_toss() {
         let now = Instant::now();
-        let mut c = Chorale::new(214.4, 7, Some(3));
+        let mut c = Chorale::new(214.4, 7, Some(2));
         c.set_active(true, now, None);
         c.heard(
             &heard_from(
@@ -844,8 +847,8 @@ mod tests {
             .advertise
             .and_then(|a| a.beacon)
             .expect("conducting");
-        assert_eq!(beacon.piece, 3);
-        assert_eq!(c.score().name, "outer-wilds");
+        assert_eq!(beacon.piece, 2);
+        assert_eq!(c.score().name, "duck-strut");
 
         // An unknown forced id falls back to the coin rather than wedging the chorale.
         let mut c = Chorale::new(214.4, 7, Some(200));
@@ -1316,5 +1319,19 @@ mod tests {
         );
         let tick = c.tick(now);
         assert_eq!(tick.singing, None, "no seat, no part: {tick:?}");
+    }
+}
+
+#[cfg(all(test, not(feature = "bundled-scores")))]
+mod unavailable_scores {
+    use super::*;
+    #[test]
+    fn omitted_scores_cannot_be_selected_or_activated() {
+        assert!(piece_catalogue().is_empty());
+        assert!(!known_piece(1));
+        assert!(!known_piece(3));
+        let mut chorale = Chorale::new(214.4, 7, None);
+        chorale.set_active(true, Instant::now(), None);
+        assert!(!chorale.active());
     }
 }

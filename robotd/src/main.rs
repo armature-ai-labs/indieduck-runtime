@@ -190,7 +190,7 @@ impl LimpFall {
     /// purpose: that ramp is bring-up from limp at the policy gain over a fixed two
     /// seconds, this one is a landed robot being put back into shape, and both its
     /// duration and its gain are tunable because both depend on how the robot lands.
-    fn pose_target(&self, now: Instant, over: Duration) -> Option<[f64; NUM_JOINTS]> {
+    fn pose_target(&self, now: Instant, over: Duration, home: &[f64; NUM_JOINTS]) -> Option<[f64; NUM_JOINTS]> {
         let LimpFall::Posing { from, since } = self else {
             return None;
         };
@@ -200,7 +200,7 @@ impl LimpFall {
         }
         let mut target = [0.0; NUM_JOINTS];
         for (i, slot) in target.iter_mut().enumerate() {
-            *slot = from[i] + (DEFAULT_POSITION[i] - from[i]) * t;
+            *slot = from[i] + (home[i] - from[i]) * t;
         }
         Some(target)
     }
@@ -219,13 +219,16 @@ struct Args {
     params: Option<PathBuf>,
 
     /// Serial port override, for a board wired differently from the shipped default.
-    #[arg(long)]
+    #[arg(long, conflicts_with_all = ["fake", "sim"])]
     port: Option<String>,
 
-    /// Run against a robot made of nothing. For laptop development and tests — there is no
-    /// simulator yet, and this is what stands in for one.
-    #[arg(long)]
+    /// Run against an in-memory test double.
+    #[arg(long, conflicts_with = "sim")]
     fake: bool,
+
+    /// Connect to the local IndieDuck R20 physics study. No hardware is opened.
+    #[arg(long, value_name = "HOST:PORT", requires = "no_policy")]
+    sim: Option<String>,
 
     /// Do not load a policy: run the loop and hold the startup pose.
     ///
@@ -260,6 +263,13 @@ enum Command {
         #[arg(long, default_value = "2s", value_parser = parse_duration)]
         duration: Duration,
     },
+}
+
+fn require_study_transport(args: &Args) -> Result<(), &'static str> {
+    if !args.fake && args.sim.is_none() {
+        return Err("R20 study supports --sim HOST:PORT --no-policy or --fake only. Physical profiles remain blocked until pack-voltage sensing, servo calibration and home clearances are validated.");
+    }
+    Ok(())
 }
 
 fn parse_duration(raw: &str) -> Result<Duration, String> {
@@ -359,6 +369,7 @@ struct RobotState {
     /// distinction that has to survive to the wire, since zero volts and unknown volts look
     /// nothing alike to whoever is deciding whether to charge the robot.
     battery_v: AtomicU64,
+    servo_rail_only: bool,
     /// Hottest servo of the last thermal sample: temperature as `f64::to_bits`, and which
     /// joint it was. Zero means *not read yet*, same as the battery.
     motor_max_c: AtomicU64,
@@ -454,6 +465,7 @@ impl RobotState {
             consecutive_errors: AtomicU32::new(0),
             startup_bus_failures: AtomicU32::new(0),
             battery_v: AtomicU64::new(0),
+            servo_rail_only: false,
             motor_max_c: AtomicU64::new(0),
             motor_mean_c: AtomicU64::new(0),
             motor_hottest: AtomicU32::new(0),
@@ -468,7 +480,7 @@ impl RobotState {
             policies: ArcSwap::from_pointee(PolicyNames::of(&params.resolved_policy())),
             has_voice: params.audio.enabled && has_any_wav(&params.audio.bank),
             theremin_ready: AtomicBool::new(false),
-            chorale_accepted: params.chorale.accept,
+            chorale_accepted: params.chorale.accept && cfg!(feature = "bundled-scores"),
             mode: AtomicU8::new(mode_code(params.policy.mode)),
             fallen: AtomicBool::new(false),
             moving: AtomicBool::new(false),
@@ -612,6 +624,7 @@ impl RobotState {
     /// would put a flat-battery warning in front of anyone whose robot has been up for less
     /// than a second.
     fn battery(&self) -> Option<proto::Battery> {
+        if self.servo_rail_only { return None; }
         let volts = f64::from_bits(self.battery_v.load(Ordering::Relaxed));
         (volts > 0.0).then(|| proto::Battery {
             volts,
@@ -648,6 +661,10 @@ async fn main() -> ExitCode {
     unsafe { libc::signal(libc::SIGPIPE, libc::SIG_DFL) };
 
     let args = Args::parse();
+    if let Err(error) = require_study_transport(&args) {
+        eprintln!("{error}");
+        return ExitCode::FAILURE;
+    }
 
     tracing_subscriber::fmt()
         .with_env_filter(
@@ -664,7 +681,8 @@ async fn main() -> ExitCode {
         .params
         .clone()
         .unwrap_or_else(|| PathBuf::from(params::DEFAULT_PATH));
-    let mut params = match Params::load(&params_path, explicit) {
+    let loaded = if args.sim.is_some() && !explicit { Ok(Params::default()) } else { Params::load(&params_path, explicit) };
+    let mut params = match loaded {
         Ok(params) => params,
         Err(e) => {
             tracing::error!(error = %e, "bad params");
@@ -679,10 +697,21 @@ async fn main() -> ExitCode {
     }
 
     if let Some(Command::Init { duration }) = args.command {
+        if args.fake || args.sim.is_some() {
+            tracing::error!("init is a hardware command and cannot run with --fake or --sim");
+            return ExitCode::FAILURE;
+        }
         return run_init(&params, duration);
     }
 
-    let state = Arc::new(RobotState::new(&params, args.unhealthy, args.busy));
+    if args.sim.is_some() {
+        params.safety.battery_empty_shutdown = false;
+        params.audio.enabled = false;
+        params.chorale.accept = false;
+    }
+    let mut state = RobotState::new(&params, args.unhealthy, args.busy);
+    state.servo_rail_only = args.sim.is_some();
+    let state = Arc::new(state);
 
     if args.unhealthy {
         tracing::warn!("--unhealthy: will report unhealthy, so updates will roll back");
@@ -695,7 +724,12 @@ async fn main() -> ExitCode {
 
     // The real thing. `setsid` detaches the command from this process's cgroup, so the
     // poweroff proceeds while systemd is busy killing robotd itself.
-    let poweroff: PowerOff = Arc::new(|| {
+    let virtual_robot = args.fake || args.sim.is_some();
+    let poweroff: PowerOff = Arc::new(move || {
+        if virtual_robot {
+            tracing::info!("virtual robot shutdown: host power is unchanged");
+            return;
+        }
         let result = std::process::Command::new("setsid")
             .args(["sh", "-c", "systemctl poweroff"])
             .spawn();
@@ -802,6 +836,7 @@ fn spawn_control_thread(
 ) -> std::io::Result<std::thread::JoinHandle<()>> {
     let period = params.period();
     let fake = args.fake;
+    let sim = args.sim.clone();
     let port = params.bus.port.clone();
     let params = params.clone();
 
@@ -818,6 +853,20 @@ fn spawn_control_thread(
                     return;
                 }
             };
+
+            if let Some(address) = sim {
+                match duck_control::sim::RemoteIo::connect(&address) {
+                    Ok((io, imu)) => {
+                        tracing::info!(%address, "IndieDuck R20 simulator connected, policies disabled");
+                        runtime.block_on(control_loop(io, imu, state, intents, params, period, poweroff));
+                    }
+                    Err(error) => {
+                        state.policy_error.store(Some(Arc::new(error.to_string())));
+                        tracing::error!(%error, "simulator unavailable; no hardware fallback");
+                    }
+                }
+                return;
+            }
 
             if fake {
                 tracing::warn!("--fake: no bus, no robot");
@@ -1265,7 +1314,7 @@ impl Bringup {
     ///
     /// Linear, like `DynamixelIo::interpolate_to` which `robotd init` uses — same shape, except this
     /// one is computed per tick instead of blocking the thread, because here the loop is running.
-    fn homing_target(&self, now: Instant) -> Option<[f64; NUM_JOINTS]> {
+    fn homing_target(&self, now: Instant, home: &[f64; NUM_JOINTS]) -> Option<[f64; NUM_JOINTS]> {
         let Bringup::Homing { from, since } = self else {
             return None;
         };
@@ -1275,7 +1324,7 @@ impl Bringup {
         }
         let mut target = [0.0; NUM_JOINTS];
         for (i, slot) in target.iter_mut().enumerate() {
-            *slot = from[i] + (DEFAULT_POSITION[i] - from[i]) * t;
+            *slot = from[i] + (home[i] - from[i]) * t;
         }
         Some(target)
     }
@@ -1423,6 +1472,16 @@ async fn control_loop<T: RobotIo, U: ImuIo>(
 ) {
     // `mut` because a mode switch replaces it: the resolved policy *is* the mode, once the
     // per-mode defaults have been applied.
+    let home = if state.servo_rail_only {
+        duck_control::model::INDIEDUCK_HOME_POSITION
+    } else {
+        DEFAULT_POSITION
+    };
+    let mouth_angle: fn(f64) -> f64 = if state.servo_rail_only {
+        duck_control::model::indieduck_mouth_target
+    } else {
+        duck_control::model::mouth_target
+    };
     let mut policy_cfg = params.resolved_policy();
     let mut safety = Safety::new(
         io,
@@ -1447,7 +1506,7 @@ async fn control_loop<T: RobotIo, U: ImuIo>(
     const LEG_JOINTS: [usize; 10] = [0, 1, 2, 3, 4, 10, 11, 12, 13, 14];
     let leg_deviation = LEG_JOINTS
         .iter()
-        .map(|&j| (hold[j] - DEFAULT_POSITION[j]).abs())
+        .map(|&j| (hold[j] - home[j]).abs())
         .sum::<f64>()
         / LEG_JOINTS.len() as f64;
     let mut seated_boot = leg_deviation > SEATED_BOOT_RAD;
@@ -2050,7 +2109,7 @@ async fn control_loop<T: RobotIo, U: ImuIo>(
                         tracing::warn!("posed — handing back to the standing policy");
                         limp_fall = LimpFall::Idle;
                         falling.reset();
-                        hold = DEFAULT_POSITION;
+                        hold = home;
                         // Hand back to the policy, and let it choose. The twist has been
                         // held at zero through the whole sequence, so with nobody driving
                         // the standing network is what command magnitude selects — which
@@ -2152,7 +2211,7 @@ async fn control_loop<T: RobotIo, U: ImuIo>(
 
         // The ramp finishing is what makes the policy eligible to drive.
         if let Bringup::Homing { .. } = bringup
-            && bringup.homing_target(tick_start).is_none()
+            && bringup.homing_target(tick_start, &home).is_none()
         {
             // Home, and a switch waiting: load the other mode's bundle here, where the robot is
             // standing still at a known pose with torque on. `Policy::load` validates and warms
@@ -2177,7 +2236,7 @@ async fn control_loop<T: RobotIo, U: ImuIo>(
             }
             tracing::warn!("at the home pose; the policy has the robot");
             bringup = Bringup::Ready;
-            hold = DEFAULT_POSITION;
+            hold = home;
         }
         state
             .homed
@@ -2231,7 +2290,7 @@ async fn control_loop<T: RobotIo, U: ImuIo>(
                 // ("policy DISABLED - returning to default pose"). Commanded directly, no
                 // ramp: the servos do the travel at their own speed, and the robot is
                 // standing at home when Start next hands it to the policy.
-                hold = DEFAULT_POSITION;
+                hold = home;
             } else {
                 // Any other stop — IMU cooling, a blind bus, the armed fall gate — freezes
                 // where the robot *is*, from the last sample that arrived. Captured once,
@@ -2280,8 +2339,8 @@ async fn control_loop<T: RobotIo, U: ImuIo>(
                     // machine above clears `Posing` on the same tick, so this is the one
                     // frame where the two can disagree.
                     limp_fall
-                        .pose_target(tick_start, limp_fall_pose)
-                        .unwrap_or(DEFAULT_POSITION),
+                        .pose_target(tick_start, limp_fall_pose, &home)
+                        .unwrap_or(home),
                     params.safety.limp_fall_pose_gain,
                     true,
                     "limp_pose",
@@ -2306,9 +2365,9 @@ async fn control_loop<T: RobotIo, U: ImuIo>(
             }
             // Ramping to the home pose. `moving` is true, because it is: the joints are travelling,
             // and `safeToRestart` must not say yes in the middle of it.
-            _ if bringup.homing_target(tick_start).is_some() => (
+            _ if bringup.homing_target(tick_start, &home).is_some() => (
                 bringup
-                    .homing_target(tick_start)
+                    .homing_target(tick_start, &home)
                     .expect("just checked it is Some"),
                 policy_cfg.gain,
                 true,
@@ -2370,7 +2429,7 @@ async fn control_loop<T: RobotIo, U: ImuIo>(
                     // gesture silently absent on a sitting robot.
                     if snapshot.enabled && bringup == Bringup::Ready {
                         targets[duck_control::model::MOUTH_INDEX] =
-                            duck_control::model::mouth_target(note.mouth);
+                            mouth_angle(note.mouth);
                     }
                     theremin_state = Some(block);
                 }
@@ -2470,7 +2529,7 @@ async fn control_loop<T: RobotIo, U: ImuIo>(
                 }
                 if snapshot.enabled && bringup == Bringup::Ready {
                     targets[duck_control::model::MOUTH_INDEX] =
-                        duck_control::model::mouth_target(chorale_mouth);
+                        mouth_angle(chorale_mouth);
                 }
                 chorale_state = Some(proto::ChoraleState {
                     listening: true,
@@ -2496,7 +2555,7 @@ async fn control_loop<T: RobotIo, U: ImuIo>(
         // a restart cannot snap a mouth.
         if driving && theremin_state.is_none() && chorale_state.is_none() {
             targets[duck_control::model::MOUTH_INDEX] =
-                duck_control::model::mouth_target(snapshot.mouth);
+                mouth_angle(snapshot.mouth);
         }
 
         // HD1910 WritePosEx arms the servo (goal torque 980). A limp robot — `--no-policy`,
@@ -3377,6 +3436,64 @@ async fn shutdown() {
 mod tests {
     use super::*;
 
+    #[test]
+    fn simulation_cli_cannot_select_hardware_or_implicit_policies() {
+        for arguments in [
+            vec!["robotd", "--sim", "127.0.0.1:7801"],
+            vec!["robotd", "--sim", "127.0.0.1:7801", "--no-policy", "--fake"],
+            vec!["robotd", "--sim", "127.0.0.1:7801", "--no-policy", "--port", "/dev/ttyS2"],
+            vec!["robotd", "--fake", "--port", "/dev/ttyS2"],
+        ] {
+            assert!(Args::try_parse_from(arguments).is_err());
+        }
+        assert!(Args::try_parse_from(["robotd", "--sim", "127.0.0.1:7801", "--no-policy"]).is_ok());
+    }
+
+    #[test]
+    fn unsupported_hardware_profiles_fail_before_loading_config_or_opening_io() {
+        for arguments in [
+            vec!["robotd"],
+            vec!["robotd", "--no-policy"],
+            vec!["robotd", "--port", "/dev/ttyS2"],
+            vec!["robotd", "init"],
+            vec!["robotd", "--params", "hardware.toml"],
+        ] {
+            assert!(require_study_transport(&Args::try_parse_from(arguments).unwrap()).is_err());
+        }
+        for arguments in [
+            vec!["robotd", "--fake"],
+            vec!["robotd", "--sim", "127.0.0.1:7801", "--no-policy"],
+        ] {
+            assert!(require_study_transport(&Args::try_parse_from(arguments).unwrap()).is_ok());
+        }
+    }
+
+    #[test]
+    fn simulation_homing_uses_canonical_bent_stand() {
+        let home = duck_control::model::INDIEDUCK_HOME_POSITION;
+        let since = Instant::now();
+        let ramp = Bringup::Homing { from: [0.0; NUM_JOINTS], since };
+        let half = ramp.homing_target(since + HOME_RAMP / 2, &home).unwrap();
+        for i in 0..NUM_JOINTS {
+            assert!((half[i] - home[i] / 2.0).abs() < 1e-12);
+        }
+        assert_ne!(home, DEFAULT_POSITION);
+        let poses: serde_json::Value = serde_json::from_str(include_str!("../../duck-control/assets/indieduck/poses.json")).unwrap();
+        let stand = poses["poses"].as_array().unwrap().iter().find(|p| p["id"] == "stand").unwrap();
+        for (i, name) in duck_control::JOINT_NAMES.iter().enumerate() {
+            assert_eq!(home[i], stand["joint_positions_rad"][name].as_f64().unwrap());
+        }
+    }
+
+    #[test]
+    fn regulated_servo_voltage_is_not_a_battery_percentage() {
+        let mut state = RobotState::new(&Params::default(), false, false);
+        state.servo_rail_only = true;
+        state.battery_v.store(5.0f64.to_bits(), Ordering::Relaxed);
+        assert!(state.battery().is_none());
+    }
+
+
     /// The limp-fall pose ramp: starts where the robot landed, ends at the standing pose,
     /// and reports itself finished rather than pinning at the end — the state machine reads
     /// `None` as "hand back to the policy".
@@ -3390,11 +3507,11 @@ mod tests {
             since,
         };
 
-        let start = posing.pose_target(since, over).expect("t = 0");
+        let start = posing.pose_target(since, over, &DEFAULT_POSITION).expect("t = 0");
         assert_eq!(start, landed, "the ramp starts from where the robot landed");
 
         let half = posing
-            .pose_target(since + over / 2, over)
+            .pose_target(since + over / 2, over, &DEFAULT_POSITION)
             .expect("mid-ramp");
         for (i, value) in half.iter().enumerate() {
             let expected = landed[i] + (DEFAULT_POSITION[i] - landed[i]) * 0.5;
@@ -3402,7 +3519,7 @@ mod tests {
         }
 
         assert!(
-            posing.pose_target(since + over, over).is_none(),
+            posing.pose_target(since + over, over, &DEFAULT_POSITION).is_none(),
             "a finished ramp is None, not the endpoint held forever"
         );
     }
@@ -3413,13 +3530,13 @@ mod tests {
     fn only_the_posing_phase_ramps() {
         let over = Duration::from_secs(1);
         let now = Instant::now();
-        assert!(LimpFall::Idle.pose_target(now, over).is_none());
+        assert!(LimpFall::Idle.pose_target(now, over, &DEFAULT_POSITION).is_none());
         assert!(
             LimpFall::Limp {
                 since: now,
                 landing: Landing::default(),
             }
-            .pose_target(now, over)
+            .pose_target(now, over, &DEFAULT_POSITION)
             .is_none()
         );
     }
@@ -4210,14 +4327,12 @@ mod tests {
         );
     }
 
-    /// **The startup invariant.** The loop must command the pose it *found*, not the home
-    /// pose and nothing interpolated — an update restarting `robotd` while the robot stands
-    /// must not move it.
+    /// A limp HD1910 must receive no position write at startup, because WritePosEx arms torque.
     ///
     /// `frozen()` so the fake robot does not follow commands: if the loop were re-reading
     /// and re-adopting each tick, a tracking fake would hide the bug.
     #[tokio::test]
-    async fn the_loop_holds_the_pose_it_started_in() {
+    async fn the_limp_loop_does_not_arm_servos_with_a_position_write() {
         let mut resting = DEFAULT_POSITION;
         resting[0] = 0.42; // deliberately not the home pose
         let io = FakeIo::at(resting).frozen();
@@ -4243,11 +4358,7 @@ mod tests {
         s.shutdown.store(true, Ordering::Relaxed);
         handle.await.unwrap();
 
-        let written = rx.recv().unwrap().expect("the loop must command something");
-        assert_eq!(
-            written.positions, resting,
-            "the loop moved the robot instead of holding where it found it"
-        );
+        assert!(rx.recv().unwrap().is_none(), "a startup write would arm HD1910 torque");
     }
 
     /// **The policy-failure contract.** A policy that cannot load must not stop the robot
@@ -4464,10 +4575,7 @@ mod tests {
         s.shutdown.store(true, Ordering::Relaxed);
         handle.await.unwrap();
 
-        // And it still adopted the pose it found rather than the home pose — waiting must
-        // not cost the startup invariant.
-        let written = rx.recv().unwrap().expect("the loop must command something");
-        assert_eq!(written.positions, resting);
+        assert!(rx.recv().unwrap().is_none(), "recovered reads must not arm HD1910 torque");
     }
 
     /// **The invariant the battery field lives or dies by.** A flat pack must be reported and
@@ -4836,8 +4944,8 @@ mod tests {
     /// rule existed to protect. It is unchanged: the loop reads, publishes and holds, and asks for no
     /// torque at all until someone enables the policy.
     ///
-    /// `torque: None` is the assertion — not `Some(false)`. Nothing wrote to those registers, so an
-    /// update that restarts `robotd` mid-stand leaves the servos exactly as they were.
+    /// Startup leaves torque untouched. The single observed write is the explicit
+    /// torque-off at shutdown, which is included in this test.
     #[tokio::test]
     async fn a_restart_asks_for_no_torque() {
         let io = FakeIo::at(DEFAULT_POSITION).frozen();
@@ -4863,8 +4971,8 @@ mod tests {
         handle.await.unwrap();
 
         let (torque, writes) = rx.recv().unwrap();
-        assert_eq!(torque, None, "the loop powered the joints on its own");
-        assert_eq!(writes, 0, "torque was written {writes} times at startup");
+        assert_eq!(torque, Some(false), "shutdown must cut torque");
+        assert_eq!(writes, 1, "only the shutdown torque write is expected");
         assert!(!s.homed.load(Ordering::Relaxed));
     }
 
@@ -4956,8 +5064,8 @@ mod tests {
         handle.await.unwrap();
 
         let (torque, writes, written) = rx.recv().unwrap();
-        assert_eq!(torque, Some(true), "init did not power the joints");
-        assert_eq!(writes, 1, "torque written {writes} times, not once");
+        assert_eq!(torque, Some(false), "shutdown must cut torque after init");
+        assert_eq!(writes, 2, "expected init-on followed by shutdown-off");
 
         // Mid-ramp: commanded somewhere between where it was and home, not either end. The ramp
         // being real is the point — a jump straight to home is the lurch it exists to avoid.
@@ -5011,7 +5119,7 @@ mod tests {
 
         let (torque, writes) = rx.recv().unwrap();
         assert_eq!(torque, Some(false), "relax left the joints powered");
-        assert_eq!(writes, 2, "expected one on and one off, got {writes}");
+        assert_eq!(writes, 3, "expected init-on, relax-off and shutdown-off, got {writes}");
         assert!(
             !s.homed.load(Ordering::Relaxed),
             "still reporting homed after relax"
@@ -5063,12 +5171,12 @@ mod tests {
         };
 
         // At the start it commands where the robot already is: no step, no lurch.
-        let first = bringup.homing_target(since).expect("ramping");
+        let first = bringup.homing_target(since, &DEFAULT_POSITION).expect("ramping");
         assert_eq!(first, resting);
 
         // Halfway is halfway, per joint.
         let mid = bringup
-            .homing_target(since + HOME_RAMP / 2)
+            .homing_target(since + HOME_RAMP / 2, &DEFAULT_POSITION)
             .expect("still ramping");
         assert!(
             (mid[0] - (resting[0] + DEFAULT_POSITION[0]) / 2.0).abs() < 1e-6,
@@ -5078,15 +5186,15 @@ mod tests {
 
         // And it ends — `None` is what promotes the state to `Ready`, so a ramp that never
         // finished would leave the policy permanently locked out.
-        assert!(bringup.homing_target(since + HOME_RAMP).is_none());
+        assert!(bringup.homing_target(since + HOME_RAMP, &DEFAULT_POSITION).is_none());
         assert!(
             bringup
-                .homing_target(since + HOME_RAMP + Duration::from_secs(1))
+                .homing_target(since + HOME_RAMP + Duration::from_secs(1), &DEFAULT_POSITION)
                 .is_none()
         );
 
         // Neither other state ramps anything.
-        assert!(Bringup::Limp.homing_target(since).is_none());
-        assert!(Bringup::Ready.homing_target(since).is_none());
+        assert!(Bringup::Limp.homing_target(since, &DEFAULT_POSITION).is_none());
+        assert!(Bringup::Ready.homing_target(since, &DEFAULT_POSITION).is_none());
     }
 }

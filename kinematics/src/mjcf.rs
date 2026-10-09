@@ -171,7 +171,14 @@ fn rest_pose(node: roxmltree::Node) -> Result<Pose, ParseError> {
     let pos = parse_vec3(node, "pos")?.unwrap_or([0.0; 3]);
     let quat = match parse_floats_attr(node, "quat", 4)? {
         Some(v) => Quat::new(v[0], v[1], v[2], v[3]).normalized(),
-        None => Quat::IDENTITY,
+        None => match parse_vec3(node, "zaxis")? {
+            Some(axis) => {
+                let [x, y, z] = normalize(axis);
+                if z < -0.999999999 { Quat::new(0.0, 1.0, 0.0, 0.0) }
+                else { Quat::new(1.0 + z, -y, x, 0.0).normalized() }
+            }
+            None => Quat::IDENTITY,
+        },
     };
     Ok(Pose::new(pos, quat))
 }

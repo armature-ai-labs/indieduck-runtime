@@ -1,0 +1,6 @@
+   Compiling kinematics v0.10.0 (/Users/dev/Desktop/IndieDuck/r07-workspace/indieduck-runtime/kinematics)
+   Compiling duck-control v0.10.0 (/Users/dev/Desktop/IndieDuck/r07-workspace/indieduck-runtime/duck-control)
+   Compiling odometry v0.10.0 (/Users/dev/Desktop/IndieDuck/r07-workspace/indieduck-runtime/odometry)
+   Compiling robotd-params v0.10.0 (/Users/dev/Desktop/IndieDuck/r07-workspace/indieduck-runtime/robotd-params)
+   Compiling robotd v0.10.0 (/Users/dev/Desktop/IndieDuck/r07-workspace/indieduck-runtime/robotd)
+    Finished `release` profile [optimized] target(s) in 8.46s

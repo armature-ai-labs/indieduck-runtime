@@ -1,0 +1,290 @@
+   Compiling kinematics v0.10.0 (/Users/dev/Desktop/IndieDuck/r07-workspace/indieduck-runtime/kinematics)
+   Compiling duck-control v0.10.0 (/Users/dev/Desktop/IndieDuck/r07-workspace/indieduck-runtime/duck-control)
+   Compiling robotd-params v0.10.0 (/Users/dev/Desktop/IndieDuck/r07-workspace/indieduck-runtime/robotd-params)
+   Compiling odometry v0.10.0 (/Users/dev/Desktop/IndieDuck/r07-workspace/indieduck-runtime/odometry)
+   Compiling robotd v0.10.0 (/Users/dev/Desktop/IndieDuck/r07-workspace/indieduck-runtime/robotd)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.88s
+     Running unittests src/lib.rs (target/debug/deps/duck_control-cd03de744f27773f)
+
+running 85 tests
+test bus::tests::position_conversion_round_trips_through_rustypot ... ok
+test bus::tests::a_dead_board_runs_past_the_warning_threshold ... ok
+test bus::tests::a_hiccup_is_remembered_in_the_total_but_not_the_run ... ok
+test bus::tests::the_first_block_is_never_stale ... ok
+test bus::tests::separate_episodes_add_up ... ok
+test bus::tests::fresh_blocks_count_for_nothing ... ok
+test bus::tests::velocity_scale_matches_the_datasheet_figure ... ok
+test fall::tests::a_fall_fires_once_after_the_debounce ... ok
+test fall::tests::a_slow_lean_waits ... ok
+test fall::tests::a_footfall_on_an_upright_robot_never_fires ... ok
+test bus::tests::read_block_is_long_enough_for_every_field ... ok
+test bus::tests::combined_read_lists_the_imu_then_the_joints ... ok
+test fall::tests::a_static_tilt_is_not_a_fall ... ok
+test fall::tests::it_rearms_when_the_fall_stops ... ok
+test fall::tests::recovering_from_a_lean_never_fires ... ok
+test fall::tests::reset_drops_a_debounce_in_progress ... ok
+test fall::tests::the_rate_is_the_analytic_derivative ... ok
+test ftbus::tests::current_conversion_drops_direction_and_sign ... ok
+test ftbus::tests::eeprom_table_is_complete_and_consistent ... ok
+test ftbus::tests::eeprom_values_match_the_hls_defaults ... ok
+test ftbus::tests::position_goal_round_trips ... ok
+test ftbus::tests::positive_radian_decreases_count ... ok
+test ftbus::tests::ping_frame_matches_protocol_manual_example ... ok
+test ftbus::tests::position_conversion_handles_bit15_and_sign ... ok
+test ftbus::tests::read_frame_matches_protocol_manual_example ... ok
+test ftbus::tests::speed_conversion_handles_bit15_and_sign ... ok
+test ftbus::tests::tick_block_parses_joint_fields ... ok
+test ftbus::tests::tick_block_rejects_multi_turn_position ... ok
+test ftbus::tests::tick_block_rejects_short_input ... ok
+test ftbus::tests::voltage_and_temperature_conversions ... ok
+test ftbus::tests::write_pos_ex_is_acc_pos_torque_speed ... ok
+test hardware::tests::hd1910_firmware_matches_the_bench_readback ... ok
+test hardware::tests::hd1910_m1_matches_the_bam_json ... ok
+test imu::tests::all_zero_quaternion_bytes_hold_the_last_good_value ... ok
+test imu::tests::gravity_is_a_unit_vector_in_steady_state ... ok
+test imu::tests::gravity_stays_close_to_unit_through_a_transient ... ok
+test imu::tests::gyro_counts_are_signed ... ok
+test imu::tests::half_precision_decodes_known_values ... ok
+test imu::tests::not_ready_until_the_chip_has_produced_output ... ok
+test io::tests::fake_imu_reports_the_injected_sample_and_fails_once ... ok
+test io::tests::fake_io_tracks_what_was_written ... ok
+test io::tests::frozen_fake_io_ignores_writes ... ok
+test io::tests::simulated_read_failure_clears_itself ... ok
+test model::tests::battery_percent_clamps_rather_than_extrapolating ... ok
+test model::tests::battery_percent_spans_the_usable_range ... ok
+test model::tests::home_pose_legs_are_mirrored ... ok
+test model::tests::battery_percent_treats_no_reading_as_zero ... ok
+test model::tests::ids_are_unique ... ok
+test model::tests::imu_bus_id_is_not_a_joint ... ok
+test model::tests::mouth_index_names_the_mouth ... ok
+test model::tests::mouth_target_maps_jaw_opening_to_r07_crank ... ok
+test model::tests::mouth_target_spans_the_prototype_range ... ok
+test model::tests::tables_agree_on_length ... ok
+test obs::tests::joint_positions_are_relative_to_the_home_pose ... ok
+test obs::tests::every_block_lands_at_its_documented_offset ... ok
+test obs::tests::scattering_an_action_skips_the_mouth ... ok
+test obs::tests::the_body_block_is_z_roll_pitch ... ok
+test obs::tests::the_layout_widths_sum_to_the_declared_input ... ok
+test obs::tests::the_mouth_is_excluded_from_the_observation ... ok
+test obs::tests::twist_magnitude_ignores_head_and_body ... ok
+test obs::tests::unbound_body_axes_are_always_zero ... ok
+test policy::tests::an_unprintable_panic_payload_still_reports_something ... ok
+test policy::tests::disabling_standing_beats_the_magnitude_rule ... ok
+test policy::tests::the_catch_is_transparent_when_nothing_panics ... ok
+test policy::tests::the_standing_threshold_matches_the_prototype ... ok
+test policy::tests::without_a_standing_policy_it_never_stands ... ok
+test policy::tests::a_panic_out_of_ort_becomes_an_error_that_keeps_its_message ... ok
+test safety::tests::a_brief_tilt_is_not_a_fall ... ok
+test safety::tests::a_caller_that_asks_for_the_limp_gain_gets_it ... ok
+test safety::tests::a_converged_imu_still_detects_a_fall ... ok
+test safety::tests::a_fall_does_not_preempt_the_caller ... ok
+test safety::tests::a_non_finite_target_is_refused_not_clamped ... ok
+test safety::tests::a_sustained_tilt_is_a_fall ... ok
+test safety::tests::an_ordinary_target_passes_through_unchanged ... ok
+test safety::tests::an_unconverged_imu_cannot_declare_a_fall ... ok
+test safety::tests::out_of_range_targets_are_clamped_and_reported ... ok
+test safety::tests::by_default_a_fall_reports_but_does_not_preempt ... ok
+test safety::tests::the_deadman_zeroes_the_twist_only ... ok
+test safety::tests::the_gain_is_only_written_when_it_changes ... ok
+test sim::tests::handshake_and_every_control_operation_round_trip ... ok
+test sim::tests::oversized_response_and_invalid_servo_rail_latch ... ok
+test sim::tests::rejects_wrong_model_contract_and_order ... ok
+test sim::tests::reset_disconnection_and_bad_sample_latch_until_restart ... ok
+test sim::tests::timeout_is_bounded_and_nonfinite_target_is_rejected ... ok
+test sim::tests::localhost_protocol_latency_report ... ok
+
+test result: ok. 85 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.80s
+
+     Running unittests src/lib.rs (target/debug/deps/kinematics-840212fd2b798637)
+
+running 28 tests
+test hand::tests::a_dropped_frame_holds_the_note_and_a_withdrawn_hand_ends_it ... ok
+test hand::tests::a_bad_frame_is_not_a_note ... ok
+test hand::tests::the_histogram_leads_with_what_dominates_the_frame ... ok
+test hand::tests::closeness_rises_as_the_hand_approaches ... ok
+test hand::tests::one_stray_zone_is_not_a_hand ... ok
+test hand::tests::the_statuses_a_real_hand_arrives_with_are_believed ... ok
+test math::tests::a_broken_quat_normalizes_to_identity_not_nan ... ok
+test math::tests::pose_composition_applies_the_right_operand_first ... ok
+test math::tests::quarter_turn_about_z_sends_x_to_y ... ok
+test tests::a_model_without_a_trunk_is_refused_with_a_name ... ok
+test tests::a_planar_arm_folds_like_high_school_trig ... ok
+test tests::the_trunk_frame_ignores_where_mujoco_drops_the_robot ... ok
+test tests::a_short_angle_slice_is_a_bug_not_a_zero - should panic ... ok
+test hand::tests::a_hand_that_keeps_being_seen_never_expires ... ok
+test tof::tests::the_floor_is_floor_and_a_thing_before_it_is_not ... ok
+test tof::tests::an_upward_beam_is_never_the_floor ... ok
+test tests::the_embedded_alpha_model_has_what_the_daemon_asks_for ... ok
+test tof::tests::a_leaning_trunk_makes_a_forward_beam_floor ... ok
+test head::tests::poses_are_finite_and_unit ... ok
+test head::tests::the_tof_pose_sits_on_the_mjcf_tof_site ... ok
+test tof::tests::a_forward_return_lands_a_metre_ahead ... ok
+test head::tests::head_pitch_moves_the_camera ... ok
+test head::tests::look_at_keeps_the_neck_it_was_given ... ok
+test head::tests::alpha_head_axis_conventions ... ok
+test head::tests::look_at_actually_looks_at_the_target ... ok
+test tof::tests::the_head_pose_steers_the_points ... ok
+test head::tests::a_target_behind_the_robot_clamps_at_the_yaw_limit ... ok
+test tof::tests::the_noise_band_and_the_silence_are_named ... ok
+
+test result: ok. 28 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/fk_against_mujoco.rs (target/debug/deps/fk_against_mujoco-9a70db8a7a5dd47f)
+
+running 1 test
+test indieduck_matches_mujoco_on_every_site_of_64_random_poses ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+     Running tests/perf_probe.rs (target/debug/deps/perf_probe-c595ba8db4af2933)
+
+running 2 tests
+test time_site_pose ... ignored, perf probe, run manually with --release --nocapture
+test time_tof_reprojection ... ignored, perf probe, run manually with --release --nocapture
+
+test result: ok. 0 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/odometry-9074f1cf0bd42578)
+
+running 5 tests
+test tests::yaw_follows_the_imu ... ok
+test tests::the_mouth_moves_no_odometry ... ok
+test tests::the_anchor_switches_only_after_the_claim_holds ... ok
+test tests::stance_leg_motion_translates_the_trunk_continuously ... ok
+test tests::standing_still_stays_at_the_origin ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/main.rs (target/debug/deps/robotd-dedf7a2535dd9d6c)
+
+running 81 tests
+test control::tests::the_ground_pick_cutoff_is_the_prototypes ... ok
+test control::tests::standing_softens_the_gain ... ok
+test soc::tests::millidegrees_convert_to_degrees ... ok
+test control::tests::the_defaults_match_the_prototype ... ok
+test soc::tests::a_reading_is_plausible_or_absent ... ok
+test intents::tests::the_twist_starts_stale ... ok
+test intents::tests::stop_zeroes_the_twist_and_leaves_the_policy_enabled ... ok
+test tests::a_blind_tick_is_not_a_landing ... ok
+test intents::tests::the_body_command_stays_nominal ... ok
+test chorale::unavailable_scores::omitted_scores_cannot_be_selected_or_activated ... ok
+test sound::tests::a_missing_bank_is_silent_not_fatal ... ok
+test sound::tests::a_bank_without_wheee_triads_latches_instead_of_respawning ... ok
+test sound::tests::a_decayed_hold_lands_and_a_release_cuts ... ok
+test tests::a_dropped_read_is_survived_rather_than_jerked_through ... ok
+test sound::tests::read_wav_pcm_reads_what_sounds_writes ... ok
+test tests::a_broken_control_loop_is_not_degraded ... ok
+test tests::a_hiccup_does_not_reset_the_controller_but_a_pause_does ... ok
+test tests::a_flat_battery_is_reported_and_changes_no_verdict ... ok
+test tests::a_hot_board_and_cool_motors_are_both_reported ... ok
+test tests::a_late_tick_is_not_a_stalled_loop ... ok
+test tests::a_silent_bus_is_degraded_rather_than_unhealthy ... ok
+test tests::a_slow_loop_reports_unhealthy ... ok
+test tests::an_unmeasured_rate_is_not_treated_as_a_slow_one ... ok
+test tests::an_unread_battery_is_absent_not_empty ... ok
+test tests::battery_is_reported_alongside_an_unhealthy_verdict ... ok
+test tests::a_bus_that_cannot_be_opened_is_reported_rather_than_abandoned ... ok
+test tests::calls_belonging_to_updaterd_are_refused ... ok
+test tests::durations_accept_seconds_and_millis ... ok
+test tests::forced_unhealthy_overrides_a_running_loop ... ok
+test tests::health_names_the_bus_while_waiting_for_it ... ok
+test tests::dispatch_answers_every_method_in_the_typed_shape ... ok
+test tests::health_says_merely_starting_before_the_first_read_fails ... ok
+test tests::limp_fall_ships_on_and_refuses_nothing ... ok
+test tests::model_api_is_reported ... ok
+test tests::only_the_posing_phase_ramps ... ok
+test tests::not_healthy_until_the_loop_has_ticked ... ok
+test tests::pose_and_mouth_intents_reach_their_slots ... ok
+test tests::relaxing_stops_the_policy_asking_to_drive ... ok
+test tests::regulated_servo_voltage_is_not_a_battery_percentage ... ok
+test tests::robot_do_refuses_what_is_not_configured_and_queues_what_is ... ok
+test tests::robot_look_moves_the_head_and_answers_with_the_joints ... ok
+test tests::a_shutdown_request_without_a_sit_cuts_torque_and_powers_off ... ok
+test intents::tests::the_slots_are_independent ... ok
+test tests::robot_sound_is_refused_by_a_robot_with_no_voice ... ok
+test tests::safe_to_restart_unless_forced_busy ... ok
+test tests::setting_the_mode_accepts_refuses_and_says_which ... ok
+test tests::simulation_cli_cannot_select_hardware_or_implicit_policies ... ok
+test tests::simulation_homing_uses_canonical_bent_stand ... ok
+test tests::subscribing_distinguishes_no_policy_from_a_broken_one ... ok
+test tests::subscribing_names_the_policy ... ok
+test tests::the_home_ramp_starts_where_the_robot_is_and_ends_at_home ... ok
+test tests::sustained_bus_failures_report_unhealthy ... ok
+test tests::the_landing_needs_the_robot_to_stay_still ... ok
+test tests::the_limp_fall_pose_ramp_ends_at_the_standing_pose ... ok
+test tests::the_later_power_request_replaces_the_earlier_one ... ok
+test tests::the_loop_section_reports_what_the_verdict_used ... ok
+test intents::tests::writing_the_twist_refreshes_its_age ... ok
+test tests::the_published_policy_names_are_one_modes_answer ... ok
+test tests::an_unloadable_policy_holds_the_pose_and_reports_why ... ok
+test tests::thermals_name_the_hottest_joint ... ok
+test tests::unread_thermals_are_absent ... ok
+test tests::waiting_for_the_bus_still_honours_shutdown ... ok
+test tests::a_failing_imu_degrades_the_tick_not_fails_it ... ok
+test theremin::tests::a_hand_past_thirty_centimetres_plays ... ok
+test theremin::tests::a_stale_frame_is_silence_and_the_instrument_stays_up ... ok
+test theremin::tests::a_flickering_sensor_does_not_chop_the_note ... ok
+test tests::the_loop_waits_for_the_bus_rather_than_giving_up ... ok
+test theremin::tests::a_theremin_that_is_down_says_nothing ... ok
+test theremin::tests::it_plays_on_the_first_frame_after_being_picked_up ... ok
+test tests::enabling_without_a_policy_leaves_the_joints_limp ... ok
+test theremin::tests::putting_it_down_forgets_the_held_note ... ok
+test theremin::tests::the_mouth_opens_with_the_note ... ok
+test theremin::tests::the_state_reports_what_the_sensor_actually_said ... ok
+test tests::robot_init_powers_the_joints_and_ramps_home ... ok
+test tests::a_restart_asks_for_no_torque ... ok
+test tests::no_subscribers_means_no_frames ... ok
+test tests::the_limp_loop_does_not_arm_servos_with_a_position_write ... ok
+test tests::robot_relax_cuts_power_and_returns_to_limp ... ok
+test tests::a_stalled_loop_reports_unhealthy ... ok
+test intents::tests::a_stale_hold_reads_as_decayed_not_released ... ok
+test tests::the_state_stream_reports_why_a_command_was_refused ... ok
+
+test result: ok. 81 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.54s
+
+     Running tests/updater_gate.rs (target/debug/deps/updater_gate-c02eeeec5af86318)
+
+running 7 tests
+test absent_robotd_is_unreachable_and_does_not_hang ... ok
+test real_robotd_answers_every_method_the_engine_calls ... ok
+test real_robotd_reports_its_own_version_over_hello ... ok
+test unhealthy_robotd_reports_a_reason_not_unreachable ... ok
+test apply_gates_against_a_healthy_robotd_and_commits ... ok
+test real_robotd_reports_a_mapped_battery ... ok
+test unhealthy_robotd_triggers_automatic_rollback ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.16s
+
+     Running unittests src/lib.rs (target/debug/deps/robotd_params-cb16064029b8db39)
+
+running 27 tests
+test registry::tests::the_feature_switches_are_the_expected_set ... ok
+test tests::a_clean_file_has_nothing_to_report ... ok
+test tests::a_missing_default_file_falls_back_to_defaults ... ok
+test tests::an_unset_bitrate_follows_the_quality ... ok
+test tests::a_section_from_another_branch_does_not_stop_the_robot ... ok
+test tests::an_explicitly_named_missing_file_is_an_error ... ok
+test tests::command_smoothing_defaults_match_the_prototype ... ok
+test tests::a_bad_value_is_still_rejected_with_its_position ... ok
+test tests::a_bad_value_beside_an_unknown_section_names_the_bad_value ... ok
+test registry::tests::choices_match_the_types ... ok
+test tests::a_syntax_error_is_still_a_syntax_error ... ok
+test tests::absent_sections_take_their_defaults ... ok
+test tests::a_typo_is_ignored_and_leaves_the_real_key_alone ... ok
+test tests::every_congestion_label_round_trips ... ok
+test tests::microduck_resolves_xl330_actuator_numbers ... ok
+test tests::every_quality_label_round_trips ... ok
+test tests::every_variant_label_round_trips ... ok
+test tests::a_bitrate_in_kilobits_is_refused ... ok
+test tests::the_capture_device_does_not_double_its_subdevice ... ok
+test tests::the_defaults_are_what_mediad_streamed_before_the_section_existed ... ok
+test tests::an_impossible_rate_is_rejected_at_startup ... ok
+test tests::walk_mode_resolves_to_the_prototype_alpha_config ... ok
+test tests::roller_mode_resolves_to_the_prototype_roller_preset ... ok
+test tests::none_and_unity_are_the_off_switches ... ok
+test tests::the_old_health_section_name_is_ignored_by_name ... ok
+test tests::the_shipped_example_matches_the_defaults ... ok
+test registry::tests::the_registry_covers_every_key_exactly ... ok
+
+test result: ok. 27 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

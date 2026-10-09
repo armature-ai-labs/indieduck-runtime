@@ -306,6 +306,7 @@ mod tests {
 
     /// The shipped piece must parse, because it *is* the default score — and it must still be
     /// the piece it was, which the counts and the shape check.
+    #[cfg(feature = "bundled-scores")]
     #[test]
     fn the_embedded_default_score_parses() {
         let score = Score::wistful();

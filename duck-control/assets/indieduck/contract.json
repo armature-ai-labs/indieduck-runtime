@@ -1,0 +1,566 @@
+{
+  "model_id": "indieduck-r20",
+  "contract_version": 2,
+  "cad_revision": "R20",
+  "units": {
+    "cad": "mm",
+    "length": "m",
+    "mass": "kg",
+    "angle": "rad",
+    "time": "s"
+  },
+  "world_frame": {
+    "x": "forward",
+    "y": "left",
+    "z": "up"
+  },
+  "root_body": "trunk_base",
+  "root_origin_mm": [
+    0,
+    0,
+    143
+  ],
+  "timestep_s": 0.005,
+  "control_period_s": 0.02,
+  "physical_joint_names": [
+    "left_hip_yaw",
+    "left_hip_roll",
+    "left_hip_pitch",
+    "left_knee",
+    "left_ankle",
+    "neck_pitch",
+    "head_pitch",
+    "head_yaw",
+    "head_roll",
+    "mouth",
+    "right_hip_yaw",
+    "right_hip_roll",
+    "right_hip_pitch",
+    "right_knee",
+    "right_ankle"
+  ],
+  "policy_action_joints": [
+    "left_hip_yaw",
+    "left_hip_roll",
+    "left_hip_pitch",
+    "left_knee",
+    "left_ankle",
+    "neck_pitch",
+    "head_pitch",
+    "head_yaw",
+    "head_roll",
+    "right_hip_yaw",
+    "right_hip_roll",
+    "right_hip_pitch",
+    "right_knee",
+    "right_ankle"
+  ],
+  "policy_observation_size": 61,
+  "mouth_index": 9,
+  "servo_volts": 5.0,
+  "joints": [
+    {
+      "name": "left_hip_yaw",
+      "body": "left_hip_yaw_link",
+      "parent_body": "trunk_base",
+      "origin_mm": [
+        20.0,
+        17.5,
+        117.0
+      ],
+      "axis": [
+        0,
+        0,
+        -1
+      ],
+      "limits_rad": [
+        -0.4363323129985824,
+        0.5235987755982988
+      ],
+      "zero_rad": 0,
+      "motor_id": 20,
+      "motor_sign": 1,
+      "encoder_home_offset_rad": null,
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+    },
+    {
+      "name": "left_hip_roll",
+      "body": "left_hip_roll_link",
+      "parent_body": "left_hip_yaw_link",
+      "origin_mm": [
+        34.5,
+        17.5,
+        102.5
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "limits_rad": [
+        -0.3839724354387525,
+        0.3839724354387525
+      ],
+      "zero_rad": 0,
+      "motor_id": 21,
+      "motor_sign": 1,
+      "encoder_home_offset_rad": null,
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+    },
+    {
+      "name": "left_hip_pitch",
+      "body": "left_hip_pitch_link",
+      "parent_body": "left_hip_roll_link",
+      "origin_mm": [
+        18.0,
+        40.0,
+        102.5
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "limits_rad": [
+        -1.5707963267948966,
+        1.5707963267948966
+      ],
+      "zero_rad": 0,
+      "motor_id": 22,
+      "motor_sign": 1,
+      "encoder_home_offset_rad": null,
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+    },
+    {
+      "name": "left_knee",
+      "body": "left_knee_link",
+      "parent_body": "left_hip_pitch_link",
+      "origin_mm": [
+        -17.75,
+        40.0,
+        80.5
+      ],
+      "axis": [
+        0,
+        -1,
+        0
+      ],
+      "limits_rad": [
+        -1.5707963267948966,
+        1.5707963267948966
+      ],
+      "zero_rad": 0,
+      "motor_id": 23,
+      "motor_sign": 1,
+      "encoder_home_offset_rad": null,
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+    },
+    {
+      "name": "left_ankle",
+      "body": "left_ankle_link",
+      "parent_body": "left_knee_link",
+      "origin_mm": [
+        -17.75,
+        64.0,
+        38.5
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "limits_rad": [
+        -1.5707963267948966,
+        1.5707963267948966
+      ],
+      "zero_rad": 0,
+      "motor_id": 24,
+      "motor_sign": 1,
+      "encoder_home_offset_rad": null,
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+    },
+    {
+      "name": "neck_pitch",
+      "body": "neck_pitch_link",
+      "parent_body": "trunk_base",
+      "origin_mm": [
+        41.0,
+        14.5,
+        152.5
+      ],
+      "axis": [
+        0,
+        -1,
+        0
+      ],
+      "limits_rad": [
+        -1.5707963267948966,
+        1.0471975511965976
+      ],
+      "zero_rad": 0,
+      "motor_id": 30,
+      "motor_sign": 1,
+      "encoder_home_offset_rad": null,
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+    },
+    {
+      "name": "head_pitch",
+      "body": "head_pitch_link",
+      "parent_body": "neck_pitch_link",
+      "origin_mm": [
+        41.0,
+        14.5,
+        202.5
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "limits_rad": [
+        -1.5707963267948966,
+        1.5707963267948966
+      ],
+      "zero_rad": 0,
+      "motor_id": 31,
+      "motor_sign": 1,
+      "encoder_home_offset_rad": null,
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+    },
+    {
+      "name": "head_yaw",
+      "body": "head_yaw_link",
+      "parent_body": "head_pitch_link",
+      "origin_mm": [
+        41.0,
+        0.0,
+        221.75
+      ],
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "limits_rad": [
+        -1.5707963267948966,
+        1.5707963267948966
+      ],
+      "zero_rad": 0,
+      "motor_id": 32,
+      "motor_sign": 1,
+      "encoder_home_offset_rad": null,
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+    },
+    {
+      "name": "head_roll",
+      "body": "head_roll_link",
+      "parent_body": "head_yaw_link",
+      "origin_mm": [
+        23.1,
+        0.0,
+        236.25
+      ],
+      "axis": [
+        -1,
+        0,
+        0
+      ],
+      "limits_rad": [
+        -0.4363323129985824,
+        0.4363323129985824
+      ],
+      "zero_rad": 0,
+      "motor_id": 33,
+      "motor_sign": 1,
+      "encoder_home_offset_rad": null,
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+    },
+    {
+      "name": "mouth",
+      "body": "mouth_link",
+      "parent_body": "head_roll_link",
+      "origin_mm": [
+        40.8999977111816,
+        0,
+        238.84999923706
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "limits_rad": [
+        0,
+        0.5235987755982988
+      ],
+      "zero_rad": 0,
+      "motor_id": 34,
+      "motor_sign": 1,
+      "encoder_home_offset_rad": null,
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+    },
+    {
+      "name": "right_hip_yaw",
+      "body": "right_hip_yaw_link",
+      "parent_body": "trunk_base",
+      "origin_mm": [
+        20.0,
+        -17.5,
+        117.0
+      ],
+      "axis": [
+        0,
+        0,
+        -1
+      ],
+      "limits_rad": [
+        -0.5235987755982988,
+        0.4363323129985824
+      ],
+      "zero_rad": 0,
+      "motor_id": 10,
+      "motor_sign": 1,
+      "encoder_home_offset_rad": null,
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+    },
+    {
+      "name": "right_hip_roll",
+      "body": "right_hip_roll_link",
+      "parent_body": "right_hip_yaw_link",
+      "origin_mm": [
+        34.5,
+        -17.5,
+        102.5
+      ],
+      "axis": [
+        1,
+        0,
+        0
+      ],
+      "limits_rad": [
+        -0.3839724354387525,
+        0.3839724354387525
+      ],
+      "zero_rad": 0,
+      "motor_id": 11,
+      "motor_sign": 1,
+      "encoder_home_offset_rad": null,
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+    },
+    {
+      "name": "right_hip_pitch",
+      "body": "right_hip_pitch_link",
+      "parent_body": "right_hip_roll_link",
+      "origin_mm": [
+        18.0,
+        -40.0,
+        102.5
+      ],
+      "axis": [
+        0,
+        -1,
+        0
+      ],
+      "limits_rad": [
+        -1.5707963267948966,
+        1.5707963267948966
+      ],
+      "zero_rad": 0,
+      "motor_id": 12,
+      "motor_sign": 1,
+      "encoder_home_offset_rad": null,
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+    },
+    {
+      "name": "right_knee",
+      "body": "right_knee_link",
+      "parent_body": "right_hip_pitch_link",
+      "origin_mm": [
+        -17.75,
+        -40.0,
+        80.5
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "limits_rad": [
+        -1.5707963267948966,
+        1.5707963267948966
+      ],
+      "zero_rad": 0,
+      "motor_id": 13,
+      "motor_sign": 1,
+      "encoder_home_offset_rad": null,
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+    },
+    {
+      "name": "right_ankle",
+      "body": "right_ankle_link",
+      "parent_body": "right_knee_link",
+      "origin_mm": [
+        -17.75,
+        -64.0,
+        38.5
+      ],
+      "axis": [
+        0,
+        -1,
+        0
+      ],
+      "limits_rad": [
+        -1.5707963267948966,
+        1.5707963267948966
+      ],
+      "zero_rad": 0,
+      "motor_id": 14,
+      "motor_sign": 1,
+      "encoder_home_offset_rad": null,
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+    }
+  ],
+  "status": "R20 CAD and simulation study; illustrative poses, no trained policy or physical validation",
+  "passive_joints": [],
+  "mouth_linkage": {
+    "type": "direct_drive",
+    "motor_closed_rad": 0,
+    "motor_open_rad": 0.5235987755982988,
+    "jaw_pivot_mm": [
+      40.8999977111816,
+      0,
+      238.84999923706
+    ],
+    "motor_to_jaw_polynomial": [
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "max_fit_error_rad": 0,
+    "status": "R16 direct-drive geometry retained in R20; logical positive opening about +Y; physical encoder sign and zero calibration pending"
+  },
+  "sensors": {
+    "head_camera": {
+      "body": "head_roll_link",
+      "origin_mm": [
+        92.6800018310547,
+        -16.0,
+        246.65146636962893
+      ],
+      "forward": [
+        1,
+        0,
+        0
+      ],
+      "fovy_deg": 49,
+      "status": "R20 camera envelope lens plane, physical mount and field of view unverified",
+      "image_size_px": [
+        640,
+        480
+      ]
+    },
+    "tof": {
+      "body": "head_roll_link",
+      "origin_mm": [
+        92.50000152587891,
+        -0.0010784864425659752,
+        247.65145874023438
+      ],
+      "forward": [
+        1,
+        0,
+        0
+      ],
+      "rows": 8,
+      "cols": 8,
+      "fov_deg": 45,
+      "range_m": 4,
+      "status": "Ideal 64-ray study; no sensor noise/calibration claim"
+    },
+    "body_imu": {
+      "body": "trunk_base",
+      "origin_mm": [
+        -21.5,
+        2.5,
+        166.4499969482422
+      ],
+      "axis_frame": "body XYZ, physical mounting transform pending"
+    },
+    "head_imu": {
+      "body": "head_roll_link",
+      "origin_mm": [
+        54.525001525878906,
+        -14.190000057220459,
+        265.9516143798828
+      ],
+      "axis_frame": "head XYZ, physical mounting transform pending"
+    }
+  },
+  "skates": {
+    "wheelbase_m": 0.065,
+    "tire_diameter_m": 0.03,
+    "wheel_width_m": 0.0076,
+    "status": "Provisional geometry; source 30 mm versus historic 35 mm code discrepancy retained",
+    "passive_joints": [
+      "passive_left_front_wheel",
+      "passive_left_rear_wheel",
+      "passive_right_front_wheel",
+      "passive_right_rear_wheel"
+    ],
+    "wheel_centres_mm": {
+      "left": {
+        "front": [
+          14.75,
+          46,
+          -20
+        ],
+        "rear": [
+          -50.25,
+          46,
+          -20
+        ]
+      },
+      "right": {
+        "front": [
+          14.75,
+          -46,
+          -20
+        ],
+        "rear": [
+          -50.25,
+          -46,
+          -20
+        ]
+      }
+    },
+    "cad_accessory_included": true,
+    "manifest_sha256": "2ade517752619691572c328da9cdca6852551786654b4d0940a11402d423ec1a"
+  },
+  "cad_manifest_sha256": "6b3d475677379ffadce39682af94662ec3c0da33bf75d637f29d05ca94e8b3eb",
+  "visual_mesh_source": "Complete R20 visible CAD assembly plus attributed provisional skate accessory; see asset notices",
+  "mouth_motor_limits_rad": [
+    0,
+    0.5235987755982988
+  ],
+  "actuators": {
+    "xml": "Estimated position PD, kp 4 Nm/rad, kv 0.08 Nms/rad, torque cap 0.85 Nm at nominal 5V. Not BAM.",
+    "selected_native_bam": {
+      "model": "hd1910/m1",
+      "implementation": "src/mjlab_microduck/sim/bam_native.py",
+      "scope": "CPU diagnostic on canonical R20 model; GPU task migration and IndieDuck measurement pending",
+      "decision": "D8 in decisions-2026-10-06.md",
+      "servo_voltage_v": 5.0,
+      "command_delay_s": 0.029,
+      "source_command_delay_s": 0.03240342471539083,
+      "source_params_sha256": "fda4366b2610bfb1911e67d8543ff157d86414c72dc4c2292683e995793f1c59",
+      "delay_status": "D8 override selected; pinned-file delay tested separately, source JSON unchanged"
+    },
+    "retained_upstream_training_reference": "Existing upstream task source selects HD-1910 m5 BAM, 4.75..5.25V and 4..7 physical-substep delays. This configuration is not migrated or selected for IndieDuck; D8 m1 remains selected.",
+    "servo_voltage_v": 5,
+    "kp_firmware_reference": 32,
+    "mass_and_friction_status": "Body mass/contact estimates; BAM uses upstream m1 fitted friction. IndieDuck physical measurements pending"
+  },
+  "cad_source_commit": "7bcdd1696516f9cff6bdefbc34e42f259c87749a"
+}

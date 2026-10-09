@@ -1369,8 +1369,8 @@ mod tests {
     /// about what their board is actually doing.
     #[test]
     fn the_shipped_example_matches_the_defaults() {
-        let shipped = include_str!("../../deploy/robotd.toml");
-        let from_file: Params = toml::from_str(shipped).expect("deploy/robotd.toml must parse");
+        let shipped = include_str!("../examples/defaults.toml");
+        let from_file: Params = toml::from_str(shipped).expect("examples/defaults.toml must parse");
         let built_in = Params::default();
 
         assert_eq!(from_file.platform.variant, built_in.platform.variant);

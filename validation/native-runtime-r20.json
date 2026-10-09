@@ -1,0 +1,79 @@
+{
+  "model_id": "indieduck-r20",
+  "contract_sha256": "fdb633cacc80985bd7cb5e2dfc759e7a60eb7ba140a5b663a87c7b7259606345",
+  "mujoco_version": "3.10.0",
+  "physical_hardware": false,
+  "recorded_utc": "2026-10-09T04:48:31.607230+00:00",
+  "host": "macOS-27.2-arm64-arm-64bit",
+  "runtime_binary": "/Users/dev/Desktop/IndieDuck/r20-workspace/indieduck-runtime/target/release/robotd",
+  "runtime_binary_sha256": "a764a852894def19180327a3336e0ab3300a8427d4e6335a8eb690d3b4d457f0",
+  "physical_startup_rejected_before_io": true,
+  "native_protocol_latency": {
+    "auxiliary_head_imu": true,
+    "read_write_ms": {
+      "max": 0.971333,
+      "median": 0.407125,
+      "p95": 0.535708,
+      "p99": 0.801875
+    },
+    "samples": 500,
+    "servo_volts": 5.0,
+    "torque_enabled": false,
+    "warmup": 50
+  },
+  "steady_health": {
+    "bus": {
+      "consecutive_errors": 0,
+      "startup_failures": 0
+    },
+    "control_loop": {
+      "achieved_hz": 50.83787587863225,
+      "last_tick_age_ms": 1,
+      "missed": 0,
+      "target_hz": 50.0,
+      "ticks": 100
+    },
+    "healthy": true,
+    "imu": {
+      "consecutive_stale_blocks": 0,
+      "ready": true,
+      "stale_blocks": 9
+    },
+    "motors": {
+      "hottest": "left_hip_yaw",
+      "max_c": 32.0,
+      "mean_c": 32.0
+    }
+  },
+  "init_reply": {
+    "accepted": true
+  },
+  "explicit_init_reached_native_torque": true,
+  "reset_health": {
+    "bus": {
+      "consecutive_errors": 50,
+      "startup_failures": 0
+    },
+    "control_loop": {
+      "achieved_hz": 49.9860185107344,
+      "last_tick_age_ms": 6,
+      "missed": 0,
+      "target_hz": 50.0,
+      "ticks": 151
+    },
+    "healthy": false,
+    "imu": {
+      "consecutive_stale_blocks": 0,
+      "ready": false,
+      "stale_blocks": 16
+    },
+    "motors": {
+      "hottest": "left_hip_yaw",
+      "max_c": 32.0,
+      "mean_c": 32.0
+    },
+    "reason": "50 consecutive bus read failures"
+  },
+  "reset_requires_restart": true,
+  "daemon_log": "2026-10-09T04:48:32.284093Z  WARN robotd: could not publish this process's identity error=/run/robotd/identity.json: No such file or directory (os error 2)\n2026-10-09T04:48:32.284161Z  WARN robotd: starting service=\"robotd\" build=0.10.0 (rev unknown, not a CI build) exe=/Users/dev/Desktop/IndieDuck/r20-workspace/indieduck-runtime/target/release/robotd pid=99516\n2026-10-09T04:48:32.284489Z  INFO robotd: serving robot IPC path=/var/folders/3d/q200nlp91ml5616tlwzmtj280000gn/T/indieduck-r20-686nftjp/robotd.sock mode=\"660\" model_api=1\n2026-10-09T04:48:32.285315Z  INFO robotd: IndieDuck R20 simulator connected, policies disabled address=127.0.0.1:64788\n2026-10-09T04:48:32.285663Z  WARN robotd: policy disabled; holding the startup pose\n2026-10-09T04:48:32.285679Z  WARN robotd: control loop running joints=15 hz=50.0 driving=false\n2026-10-09T04:48:34.289069Z  WARN duck_control::safety: torque on=true\n2026-10-09T04:48:34.289488Z  WARN robotd: robot.init: torque on, ramping to home HOME_RAMP=2s\n2026-10-09T04:48:34.309909Z  WARN robotd: bus read failed error=bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\" consecutive=1\n2026-10-09T04:48:34.309951Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.327025Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.347127Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.370563Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.387668Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.407348Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.430142Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.451484Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.467900Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.487656Z  WARN robotd: bus read failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\" consecutive=10\n2026-10-09T04:48:34.487712Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.511521Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.526989Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.552118Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.570963Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.588962Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.611553Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.628293Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.646861Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.669548Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.688513Z  WARN robotd: bus read failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\" consecutive=20\n2026-10-09T04:48:34.689452Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.710973Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.729340Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.750897Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.770971Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.787323Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.809357Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.829394Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.848374Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.867922Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.890958Z  WARN robotd: bus read failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\" consecutive=30\n2026-10-09T04:48:34.891720Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.909924Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.930193Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.951542Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.970543Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:34.988365Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:35.010946Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:35.030195Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:35.049073Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:35.069086Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:35.088593Z  WARN robotd: bus read failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\" consecutive=40\n2026-10-09T04:48:35.088652Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:35.107465Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:35.131155Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:35.148513Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:35.168656Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:35.188537Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:35.211120Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:35.230315Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:35.247511Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:35.271553Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:35.290380Z  WARN robotd: bus read failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\" consecutive=50\n2026-10-09T04:48:35.290427Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:35.297130Z  INFO robotd: shutting down\n2026-10-09T04:48:35.309912Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:35.309974Z  WARN duck_control::safety: torque on=false\n2026-10-09T04:48:35.310008Z  WARN robotd: cannot cut torque on shutdown error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-09T04:48:35.310032Z  INFO robotd: control loop stopped\n"
+}

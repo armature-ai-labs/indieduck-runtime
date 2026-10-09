@@ -1,0 +1,36 @@
+{
+  "revision": "R20",
+  "scope": "simulation only",
+  "canonical_repository": "https://github.com/armature-ai-labs/indieduck-rl",
+  "canonical_model_path": "src/mjlab_microduck/robot/indieduck",
+  "contract_sha256": "fdb633cacc80985bd7cb5e2dfc759e7a60eb7ba140a5b663a87c7b7259606345",
+  "physical_hardware_enabled": false,
+  "mechanism": "direct_drive, geometric 0 to pi/6 rad; encoder calibration pending",
+  "fk_oracle": {
+    "seed": 7,
+    "poses": 64,
+    "sites_per_pose": 70,
+    "tolerance": 1e-06
+  },
+  "test_results": {
+    "affected_runtime": 236,
+    "sound_core": 60,
+    "protocol_library": 49,
+    "failures": 0,
+    "manual_kinematics_benchmarks_ignored": 2,
+    "default_cargo_total": 345
+  },
+  "rustc": "1.91.1 (ed61e7d7e 2025-11-07)",
+  "generated_sha256": {
+    "duck-control/assets/indieduck/linkage.rs": "1962636a0131ec6a30b8136e2ee53e3e66467dfe61f861246f735b8a090dc966",
+    "duck-control/assets/indieduck/contract.sha256": "5a7bcf55a600e70d2948feb89efba6c84ba0a619f36411e72e1ec8b3c0b61fa7",
+    "duck-control/assets/indieduck/poses.json": "6108e453e0ff9197e98dfb6f23ef0fe57d8f0ac39e7dc5d63d1aa09e3f2a4727",
+    "duck-control/assets/indieduck/identity.rs": "58eb61dd2e381a6041cdeca096484ee27290f91e10b8c0967f5a727c4cb4635f",
+    "duck-control/assets/indieduck/contract.json": "fdb633cacc80985bd7cb5e2dfc759e7a60eb7ba140a5b663a87c7b7259606345",
+    "kinematics/assets/indieduck/kinematics.xml": "15052abe7fc8037d07629e8193970d571d0d68aede317985ec7d3dd447c19a83",
+    "kinematics/tests/fixtures/fk_indieduck.json": "ffe9b23c790904e2fbf60a74b6b2dc4fc2600ab396a2d727b8e57e980a522d05"
+  },
+  "default_cargo_command": "cargo test --locked --offline",
+  "native_integration_evidence": "native-runtime-r20.json",
+  "release_build_evidence": "r20-release-build.txt"
+}

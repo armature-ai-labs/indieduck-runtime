@@ -1,12 +1,8 @@
 //! The robot, as data.
 //!
-//! One variant — **alpha** — because that is the only robot that exists. Every shipped
-//! policy is `alpha_*`; v1/v1.5/v1.6 are history. A second revision becomes a second set
-//! of tables, which is honest until there is a second robot to generalise from.
-//!
-//! The numeric values here are lifted from `microduck_runtime`'s `motor.rs`, where they
-//! were measured against hardware rather than derived. Re-deriving them from a datasheet
-//! is exactly the kind of change that looks right and walks wrong.
+//! The inherited policy baseline is retained for compatibility. The R20 direct-drive jaw and
+//! simulator home pose are generated from the canonical IndieDuck model contract.
+//! Hardware calibration and trained R20 policies remain separate work.
 
 /// Left leg (5) · neck/head/mouth (5) · right leg (5).
 pub const NUM_JOINTS: usize = 15;
@@ -74,7 +70,7 @@ pub const DEFAULT_POSITION: [f64; NUM_JOINTS] = [
 /// −5°..+30°, from `microduck_runtime`'s `variant.rs`.
 ///
 /// The mouth is not part of any policy — every alpha network is 14 actions with this joint
-/// skipped — so these two numbers and [`mouth_target`] are the whole of mouth control.
+/// skipped, so these two numbers and [`mouth_target`] are the whole of mouth control.
 pub const MOUTH_CLOSED: f64 = -5.0 * std::f64::consts::PI / 180.0;
 pub const MOUTH_OPEN: f64 = 30.0 * std::f64::consts::PI / 180.0;
 
@@ -87,6 +83,15 @@ pub fn mouth_target(open: f64) -> f64 {
         0.0
     };
     MOUTH_CLOSED + open * (MOUTH_OPEN - MOUTH_CLOSED)
+}
+
+// Geometric motor limits and home pose generated from the canonical CAD contract.
+include!("../assets/indieduck/linkage.rs");
+
+/// Opening fraction to the R20 direct-drive joint angle, not physical servo calibration.
+pub fn indieduck_mouth_target(open: f64) -> f64 {
+    let open = if open.is_finite() { open.clamp(0.0, 1.0) } else { 0.0 };
+    INDIEDUCK_MOUTH_CLOSED + open * (INDIEDUCK_MOUTH_OPEN - INDIEDUCK_MOUTH_CLOSED)
 }
 
 pub const BAUD_RATE: u32 = 1_000_000;
@@ -212,8 +217,23 @@ mod tests {
         assert_eq!(battery_percent(-1.0), 0.0);
     }
 
-    /// The mouth range is the prototype's: −5° closed, +30° open. A fraction outside 0..1
-    /// (or a NaN from a broken client) must clamp rather than command a servo past travel.
+    #[test]
+    fn mouth_target_matches_direct_drive_contract() {
+        let contract: serde_json::Value = serde_json::from_str(include_str!("../assets/indieduck/contract.json")).unwrap();
+        assert_eq!(contract["cad_revision"], "R20");
+        assert_eq!(contract["mouth_linkage"]["type"], "direct_drive");
+        assert_eq!(INDIEDUCK_MOUTH_OPEN, contract["mouth_linkage"]["motor_open_rad"].as_f64().unwrap());
+        assert_eq!(INDIEDUCK_MOUTH_CLOSED, contract["mouth_linkage"]["motor_closed_rad"].as_f64().unwrap());
+        assert_eq!(indieduck_mouth_target(0.0), INDIEDUCK_MOUTH_CLOSED);
+        assert_eq!(indieduck_mouth_target(1.0), INDIEDUCK_MOUTH_OPEN);
+        assert!((indieduck_mouth_target(0.5) - (INDIEDUCK_MOUTH_OPEN + INDIEDUCK_MOUTH_CLOSED) / 2.0).abs() < 1e-12);
+        assert_eq!(indieduck_mouth_target(-3.0), indieduck_mouth_target(0.0));
+        assert_eq!(indieduck_mouth_target(7.0), indieduck_mouth_target(1.0));
+        for value in [f64::NAN, f64::INFINITY, f64::NEG_INFINITY] {
+            assert_eq!(indieduck_mouth_target(value), indieduck_mouth_target(0.0));
+        }
+    }
+
     #[test]
     fn mouth_target_spans_the_prototype_range() {
         assert!((mouth_target(0.0) - (-5.0f64.to_radians())).abs() < 1e-12);

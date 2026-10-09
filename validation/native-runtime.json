@@ -1,0 +1,86 @@
+{
+  "model_id": "indieduck-r07",
+  "contract_sha256": "bca2a9edb18882bee2073046f1e4515350b7affc64ca34d57664fec176bf71eb",
+  "mujoco_version": "3.10.0",
+  "physical_hardware": false,
+  "recorded_utc": "2026-10-08T06:18:08.975752+00:00",
+  "host": "macOS-27.2-arm64-arm-64bit",
+  "runtime_binary": "/Users/dev/Desktop/IndieDuck/r07-workspace/indieduck-runtime/target/release/robotd",
+  "runtime_binary_sha256": "f9f351f00c2296c6ba49461c1490782f67debff6c62cc5ae3c38920dfb1dd711",
+  "native_protocol_latency": {
+    "auxiliary_head_imu": true,
+    "read_write_ms": {
+      "max": 1.9689590000000001,
+      "median": 0.473208,
+      "p95": 0.816291,
+      "p99": 1.1581670000000002
+    },
+    "samples": 500,
+    "servo_volts": 5.0,
+    "torque_enabled": false,
+    "warmup": 50
+  },
+  "steady_health": {
+    "bus": {
+      "consecutive_errors": 0,
+      "startup_failures": 0
+    },
+    "control_loop": {
+      "achieved_hz": 50.59445799695814,
+      "last_tick_age_ms": 2,
+      "missed": 0,
+      "target_hz": 50.0,
+      "ticks": 100
+    },
+    "healthy": true,
+    "imu": {
+      "consecutive_stale_blocks": 0,
+      "ready": true,
+      "stale_blocks": 15
+    },
+    "motors": {
+      "hottest": "left_hip_yaw",
+      "max_c": 32.0,
+      "mean_c": 32.0
+    }
+  },
+  "init_reply": {
+    "accepted": true
+  },
+  "explicit_init_reached_native_torque": true,
+  "reset_health": {
+    "bus": {
+      "consecutive_errors": 10,
+      "startup_failures": 0
+    },
+    "control_loop": {
+      "achieved_hz": 49.978765272105015,
+      "last_tick_age_ms": 2,
+      "missed": 0,
+      "target_hz": 50.0,
+      "ticks": 111
+    },
+    "healthy": false,
+    "imu": {
+      "consecutive_stale_blocks": 0,
+      "ready": false,
+      "stale_blocks": 29
+    },
+    "motors": {
+      "hottest": "left_hip_yaw",
+      "max_c": 32.0,
+      "mean_c": 32.0
+    },
+    "reason": "10 consecutive bus read failures"
+  },
+  "reset_requires_restart": true,
+  "daemon_log": "2026-10-08T06:18:10.313712Z  WARN robotd: could not publish this process's identity error=/run/robotd/identity.json: No such file or directory (os error 2)\n2026-10-08T06:18:10.313777Z  WARN robotd: starting service=\"robotd\" build=0.10.0 (rev unknown, not a CI build) exe=/Users/dev/Desktop/IndieDuck/r07-workspace/indieduck-runtime/target/release/robotd pid=548\n2026-10-08T06:18:10.314495Z  INFO robotd: serving robot IPC path=/var/folders/3d/q200nlp91ml5616tlwzmtj280000gn/T/indieduck-r07-cukey8rk/robotd.sock mode=\"660\" model_api=1\n2026-10-08T06:18:10.315358Z  INFO robotd: IndieDuck R07 simulator connected, policies disabled address=127.0.0.1:58864\n2026-10-08T06:18:10.315782Z  WARN robotd: policy disabled; holding the startup pose\n2026-10-08T06:18:10.315802Z  WARN robotd: control loop running joints=15 hz=50.0 driving=false\n2026-10-08T06:18:12.320848Z  WARN duck_control::safety: torque on=true\n2026-10-08T06:18:12.321163Z  WARN robotd: robot.init: torque on, ramping to home HOME_RAMP=2s\n2026-10-08T06:18:12.324235Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-08T06:18:12.342327Z  WARN robotd: bus read failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\" consecutive=1\n2026-10-08T06:18:12.342377Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-08T06:18:12.360082Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-08T06:18:12.378625Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-08T06:18:12.401733Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-08T06:18:12.424301Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-08T06:18:12.436865Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-08T06:18:12.463935Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-08T06:18:12.483532Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-08T06:18:12.497177Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-08T06:18:12.525803Z  WARN robotd: bus read failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\" consecutive=10\n2026-10-08T06:18:12.525858Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-08T06:18:12.528670Z  INFO robotd: shutting down\n2026-10-08T06:18:12.536937Z  WARN robotd: bus write failed error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-08T06:18:12.537028Z  WARN duck_control::safety: torque on=false\n2026-10-08T06:18:12.537162Z  WARN robotd: cannot cut torque on shutdown error=bus transaction failed: IndieDuck simulator: bus transaction failed: IndieDuck simulator: \"simulation reset; reconnect required\"\n2026-10-08T06:18:12.537198Z  INFO robotd: control loop stopped\n",
+  "rustc": "rustc 1.91.1 (ed61e7d7e 2025-11-07)",
+  "test_counts": {
+    "runtime": 234,
+    "sounds": 60,
+    "manual_performance": 2
+  },
+  "actuator_path": "Default XML PD body server; separate native BAM diagnostics are not timed here",
+  "verification_scope": "The 234 affected runtime tests, release build and native integration were rerun after the final camera-envelope correction. Sounds and manual kinematics timing evidence is from the preceding unchanged-code run."
+}

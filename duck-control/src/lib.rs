@@ -18,6 +18,7 @@ pub mod model;
 pub mod obs;
 pub mod policy;
 pub mod safety;
+pub mod sim;
 
 pub use imu::ImuData;
 pub use io::{

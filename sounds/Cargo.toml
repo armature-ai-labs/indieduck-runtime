@@ -11,6 +11,10 @@ edition.workspace = true
 rust-version.workspace = true
 license.workspace = true
 
+[features]
+default = []
+bundled-scores = []
+
 [dependencies]
 anyhow = "1"
 clap = { workspace = true, features = ["derive"] }

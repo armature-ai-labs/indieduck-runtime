@@ -4,7 +4,7 @@ This repository contains a filtered source snapshot from [JoyandAI/microduck](ht
 
 JoyandAI's repository is a GitHub fork of [pollen-robotics/microduck](https://github.com/pollen-robotics/microduck). Credit belongs to Pollen Robotics, JoyandAI and the upstream contributors. The source authors found in the history of the included paths are retained in [provenance/UPSTREAM_AUTHORS.txt](provenance/UPSTREAM_AUTHORS.txt). This list is supplemental; source copyright notices and third-party credits remain authoritative.
 
-This is a clean code import. Original Git history is not included and this repository must not be described as a GitHub-native fork. Every imported source file is byte-identical to the selected upstream Git blob. IndieDuck has added attribution, selection manifests and validation notes. No robot-model adaptation or interface integration has been performed in this snapshot.
+The initial published snapshot was a filtered code import with byte-identical imported files, attribution and selection manifests. Original Git history is not included, so this repository is not a GitHub-native fork. The local R07 working copy now adds the simulator adapter, generated IndieDuck model interfaces, tests and build adaptations described in [R07-STUDY.md](R07-STUDY.md). The original source hashes in `provenance/` describe the initial import, not these modified local files.
 
 ## Verified ancestry
 
@@ -19,6 +19,10 @@ The selected JoyandAI commit and the Pollen comparison commit `c2b0a213abee69e03
 - [License boundaries](THIRD_PARTY_NOTICES.md).
 - [Current build and execution limitations](VALIDATION.md).
 
-Neither selected upstream tree contains Git submodule entries or a `.gitmodules` file. Third-party code is vendored or obtained through package dependencies. Lockfiles retain the upstream dependency choices; those choices have not been tested on IndieDuck.
+Neither selected upstream tree contains Git submodule entries or a `.gitmodules` file. Third-party code is vendored or obtained through package dependencies. Lockfiles retain the upstream dependency choices; physical IndieDuck deployment of those choices remains untested.
 
 Upstream developer paths in test fixtures and examples remain unchanged for source fidelity. They are public upstream examples, not paths from an IndieDuck maintainer's machine. Some manual scripts retain upstream-specific defaults that need review before use. No GitHub Actions workflows or deployment keys are included.
+
+## R20 simulation contributor release
+
+Armature AI Labs added the R20 direct-drive jaw mapping, revision-bound runtime interfaces and a physical-startup guard. Generated kinematics and FK fixtures originate from the canonical IndieDuck model in `indieduck-rl`, not independent hardware calibration. R07 integration records remain historical.

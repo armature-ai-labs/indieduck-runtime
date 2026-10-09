@@ -477,22 +477,10 @@ impl Score {
     /// Parsed from `scores/wistful.duckscore`, embedded — deliberately the same text file that
     /// ships as the worked example, so the example cannot drift from the thing it is an example
     /// of. If it stops parsing, the tests say so.
+    #[cfg(feature = "bundled-scores")]
     pub fn wistful() -> Self {
         text::parse(include_str!("../../scores/wistful.duckscore"))
             .expect("the embedded default score must parse")
-    }
-
-    /// TEST ONLY — an arrangement of Andrew Prahlow's Outer Wilds theme, for bench and living
-    /// room. **Remove before anything ships**: unlike [`Score::wistful`] and
-    /// [`Score::duck_strut`], which are original precisely because everything this idiom
-    /// evokes is in copyright, this one *is* the copyrighted piece. It exists to exercise the
-    /// piece registry with music people recognise; it must not ride a release.
-    pub fn outer_wilds() -> Self {
-        let mut score = midi::parse(include_bytes!("../../scores/outer_wilds.mid"))
-            .expect("the embedded MIDI score must parse")
-            .score;
-        score.name = "outer-wilds".to_owned();
-        score
     }
 
     /// The other piece: an upbeat one, through the MIDI front end.
@@ -503,12 +491,23 @@ impl Score {
     /// built for. D major, 126 bpm, an oom-pah bass, tenor backbeats, and a middle section
     /// where the tenor echoes the soprano an octave down — everything the wistful chorale
     /// is not, including per-voice rhythm the text format cannot write.
+    #[cfg(feature = "bundled-scores")]
     pub fn duck_strut() -> Self {
         let mut score = midi::parse(include_bytes!("../../scores/duck_strut.mid"))
             .expect("the embedded MIDI score must parse")
             .score;
         score.name = "duck-strut".to_owned();
         score
+    }
+
+    #[cfg(not(feature = "bundled-scores"))]
+    pub fn wistful() -> Self {
+        Self::from_notes("unavailable", 60.0, Vec::new())
+    }
+
+    #[cfg(not(feature = "bundled-scores"))]
+    pub fn duck_strut() -> Self {
+        Self::from_notes("unavailable", 60.0, Vec::new())
     }
 
     /// Seconds per beat.
@@ -958,6 +957,7 @@ mod tests {
     /// The embedded upbeat piece must parse, be a full quartet, stay inside the duck part
     /// ranges, and keep its tempo — the properties the ducks depend on, pinned so an edited
     /// MuseScore export cannot silently break them.
+    #[cfg(feature = "bundled-scores")]
     #[test]
     fn duck_strut_is_a_quartet_a_duck_can_sing() {
         let score = Score::duck_strut();
@@ -1193,6 +1193,7 @@ mod tests {
     /// Common tones are tied, not re-attacked — the audible difference between a chorale and a
     /// list of chords, and the reason both front ends merge rather than emitting one note per
     /// gesture or per MIDI event.
+    #[cfg(feature = "bundled-scores")]
     #[test]
     fn common_tones_come_out_as_one_note() {
         let score = Score::wistful();
@@ -1391,6 +1392,7 @@ mod tests {
 
     /// The shipped piece uses all of it — a chord assembling, a solo, a breath, a change of
     /// dynamic and a hum. If someone flattens it back to block chords, this notices.
+    #[cfg(feature = "bundled-scores")]
     #[test]
     fn the_default_piece_is_more_than_block_chords() {
         let score = Score::wistful();
@@ -1420,6 +1422,7 @@ mod tests {
 
     /// Every note has to be singable by a duck and audible on its speaker: a chorale whose bass
     /// is below what the hardware reproduces is a trio.
+    #[cfg(feature = "bundled-scores")]
     #[test]
     fn the_default_score_stays_inside_ranges_a_duck_can_sing() {
         // Bass A2..A3, tenor E3..E4, alto A3..A4, soprano D4..D5.
@@ -1437,6 +1440,7 @@ mod tests {
 
     /// The whole ensemble must render to finite, audible, non-clipping audio for any number of
     /// ducks and any seeds — this is the thing a laptop preview exists to produce.
+    #[cfg(feature = "bundled-scores")]
     #[test]
     fn an_ensemble_of_any_size_renders_sane_audio() {
         let score = Score::wistful();
@@ -1466,6 +1470,7 @@ mod tests {
 
     /// A dry render is still a render: the room is a preview convenience, not load-bearing, and
     /// turning it off must not change the level or blow up.
+    #[cfg(feature = "bundled-scores")]
     #[test]
     fn the_room_is_optional() {
         let score = Score::wistful();

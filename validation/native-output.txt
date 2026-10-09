@@ -1,0 +1,77 @@
+{
+  "model_id": "indieduck-r07",
+  "contract_sha256": "bca2a9edb18882bee2073046f1e4515350b7affc64ca34d57664fec176bf71eb",
+  "mujoco_version": "3.10.0",
+  "physical_hardware": false,
+  "recorded_utc": "2026-10-08T06:18:08.975752+00:00",
+  "host": "macOS-27.2-arm64-arm-64bit",
+  "runtime_binary": "/Users/dev/Desktop/IndieDuck/r07-workspace/indieduck-runtime/target/release/robotd",
+  "runtime_binary_sha256": "f9f351f00c2296c6ba49461c1490782f67debff6c62cc5ae3c38920dfb1dd711",
+  "native_protocol_latency": {
+    "auxiliary_head_imu": true,
+    "read_write_ms": {
+      "max": 1.9689590000000001,
+      "median": 0.473208,
+      "p95": 0.816291,
+      "p99": 1.1581670000000002
+    },
+    "samples": 500,
+    "servo_volts": 5.0,
+    "torque_enabled": false,
+    "warmup": 50
+  },
+  "steady_health": {
+    "bus": {
+      "consecutive_errors": 0,
+      "startup_failures": 0
+    },
+    "control_loop": {
+      "achieved_hz": 50.59445799695814,
+      "last_tick_age_ms": 2,
+      "missed": 0,
+      "target_hz": 50.0,
+      "ticks": 100
+    },
+    "healthy": true,
+    "imu": {
+      "consecutive_stale_blocks": 0,
+      "ready": true,
+      "stale_blocks": 15
+    },
+    "motors": {
+      "hottest": "left_hip_yaw",
+      "max_c": 32.0,
+      "mean_c": 32.0
+    }
+  },
+  "init_reply": {
+    "accepted": true
+  },
+  "explicit_init_reached_native_torque": true,
+  "reset_health": {
+    "bus": {
+      "consecutive_errors": 10,
+      "startup_failures": 0
+    },
+    "control_loop": {
+      "achieved_hz": 49.978765272105015,
+      "last_tick_age_ms": 2,
+      "missed": 0,
+      "target_hz": 50.0,
+      "ticks": 111
+    },
+    "healthy": false,
+    "imu": {
+      "consecutive_stale_blocks": 0,
+      "ready": false,
+      "stale_blocks": 29
+    },
+    "motors": {
+      "hottest": "left_hip_yaw",
+      "max_c": 32.0,
+      "mean_c": 32.0
+    },
+    "reason": "10 consecutive bus read failures"
+  },
+  "reset_requires_restart": true
+}

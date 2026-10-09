@@ -1,0 +1,784 @@
+{
+  "model_id": "indieduck-r20",
+  "contract_version": 2,
+  "poses": [
+    {
+      "id": "zero",
+      "label": "CAD zero",
+      "joint_positions_rad": {
+        "left_hip_yaw": 0.0,
+        "left_hip_roll": 0.0,
+        "left_hip_pitch": 0,
+        "left_knee": 0,
+        "left_ankle": 0,
+        "neck_pitch": 0,
+        "head_pitch": 0,
+        "head_yaw": 0.0,
+        "head_roll": 0.0,
+        "mouth": 0.0,
+        "right_hip_yaw": 0.0,
+        "right_hip_roll": 0.0,
+        "right_hip_pitch": 0,
+        "right_knee": 0,
+        "right_ankle": 0
+      },
+      "base_quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "base_position_m": [
+        0.0,
+        0.0,
+        0.1433
+      ],
+      "support_rule": "seat lowest robot collision geometry on ground after FK",
+      "intended_contacts": [],
+      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "skates_base_position_m": [
+        0.0,
+        0.0,
+        0.17830000000000001
+      ]
+    },
+    {
+      "id": "stand",
+      "label": "R20 natural standing",
+      "joint_positions_rad": {
+        "left_hip_yaw": -0.2617993877991494,
+        "left_hip_roll": 0.0,
+        "left_hip_pitch": -0.4,
+        "left_knee": 0.4,
+        "left_ankle": 0.8,
+        "neck_pitch": 0,
+        "head_pitch": 0,
+        "head_yaw": 0.0,
+        "head_roll": 0.0,
+        "mouth": 0.0,
+        "right_hip_yaw": 0.2617993877991494,
+        "right_hip_roll": 0.0,
+        "right_hip_pitch": 0.4,
+        "right_knee": -0.4,
+        "right_ankle": -0.8
+      },
+      "base_quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "base_position_m": [
+        0.0,
+        0.0,
+        0.14274672939817865
+      ],
+      "support_rule": "seat lowest robot collision geometry on ground after FK",
+      "intended_contacts": [],
+      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "skates_base_position_m": [
+        0.0,
+        0.0,
+        0.17774672939817865
+      ]
+    },
+    {
+      "id": "walk_left",
+      "label": "Walking: left support",
+      "joint_positions_rad": {
+        "left_hip_yaw": 0.0,
+        "left_hip_roll": 0.0,
+        "left_hip_pitch": -0.4,
+        "left_knee": 0.4,
+        "left_ankle": 0.8,
+        "neck_pitch": 0.15,
+        "head_pitch": 0.15,
+        "head_yaw": 0.0,
+        "head_roll": 0.0,
+        "mouth": 0.0,
+        "right_hip_yaw": 0.0,
+        "right_hip_roll": 0.0,
+        "right_hip_pitch": 0.65,
+        "right_knee": -0.8,
+        "right_ankle": -1.05
+      },
+      "base_quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "base_position_m": [
+        0.0,
+        0.0,
+        0.14274672939817867
+      ],
+      "support_rule": "seat lowest robot collision geometry on ground after FK",
+      "intended_contacts": [
+        "left_foot"
+      ],
+      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "skates_base_position_m": [
+        0.0,
+        0.0,
+        0.17774672939817868
+      ]
+    },
+    {
+      "id": "walk_right",
+      "label": "Walking: right support",
+      "joint_positions_rad": {
+        "left_hip_yaw": 0.0,
+        "left_hip_roll": 0.0,
+        "left_hip_pitch": -0.65,
+        "left_knee": 0.8,
+        "left_ankle": 1.05,
+        "neck_pitch": 0.15,
+        "head_pitch": 0.15,
+        "head_yaw": 0.0,
+        "head_roll": 0.0,
+        "mouth": 0.0,
+        "right_hip_yaw": 0.0,
+        "right_hip_roll": 0.0,
+        "right_hip_pitch": 0.4,
+        "right_knee": -0.4,
+        "right_ankle": -0.8
+      },
+      "base_quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "base_position_m": [
+        0.0,
+        0.0,
+        0.14274672939817867
+      ],
+      "support_rule": "seat lowest robot collision geometry on ground after FK",
+      "intended_contacts": [
+        "right_foot"
+      ],
+      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "skates_base_position_m": [
+        0.0,
+        0.0,
+        0.17774672939817868
+      ]
+    },
+    {
+      "id": "sit",
+      "label": "Sitting study",
+      "joint_positions_rad": {
+        "left_hip_yaw": 0.0,
+        "left_hip_roll": 0.0,
+        "left_hip_pitch": -0.85,
+        "left_knee": 0.7,
+        "left_ankle": 1.5499999999999998,
+        "neck_pitch": 0.35,
+        "head_pitch": 0.35,
+        "head_yaw": 0.0,
+        "head_roll": 0.0,
+        "mouth": 0.0,
+        "right_hip_yaw": 0.0,
+        "right_hip_roll": 0.0,
+        "right_hip_pitch": 0.85,
+        "right_knee": -0.7,
+        "right_ankle": -1.5499999999999998
+      },
+      "base_quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "base_position_m": [
+        0.0,
+        0.0,
+        0.12155128646096496
+      ],
+      "support_rule": "seat lowest robot collision geometry on ground after FK",
+      "intended_contacts": [
+        "feet",
+        "rear trunk"
+      ],
+      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "skates_base_position_m": [
+        0.0,
+        0.0,
+        0.15655128646096497
+      ]
+    },
+    {
+      "id": "sit_transition",
+      "label": "Sit-to-stand midpoint",
+      "joint_positions_rad": {
+        "left_hip_yaw": 0.0,
+        "left_hip_roll": 0.0,
+        "left_hip_pitch": -0.6,
+        "left_knee": 0.6,
+        "left_ankle": 1.2,
+        "neck_pitch": 0.15,
+        "head_pitch": 0.15,
+        "head_yaw": 0.0,
+        "head_roll": 0.0,
+        "mouth": 0.0,
+        "right_hip_yaw": 0.0,
+        "right_hip_roll": 0.0,
+        "right_hip_pitch": 0.6,
+        "right_knee": -0.6,
+        "right_ankle": -1.2
+      },
+      "base_quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "base_position_m": [
+        0.0,
+        0.0,
+        0.13286237763990572
+      ],
+      "support_rule": "seat lowest robot collision geometry on ground after FK",
+      "intended_contacts": [],
+      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "skates_base_position_m": [
+        0.0,
+        0.0,
+        0.16786237763990575
+      ]
+    },
+    {
+      "id": "pickup",
+      "label": "Ground pickup approach",
+      "joint_positions_rad": {
+        "left_hip_yaw": 0.0,
+        "left_hip_roll": 0.0,
+        "left_hip_pitch": -0.8,
+        "left_knee": 0.6,
+        "left_ankle": 1.4,
+        "neck_pitch": -0.7,
+        "head_pitch": 0.5,
+        "head_yaw": 0.0,
+        "head_roll": 0.0,
+        "mouth": 0.5233947744418216,
+        "right_hip_yaw": 0.0,
+        "right_hip_roll": 0.0,
+        "right_hip_pitch": 0.8,
+        "right_knee": -0.6,
+        "right_ankle": -1.4
+      },
+      "base_quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "base_position_m": [
+        0.0,
+        0.0,
+        0.1274116478571057
+      ],
+      "support_rule": "seat lowest robot collision geometry on ground after FK",
+      "intended_contacts": [],
+      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "skates_base_position_m": [
+        0.0,
+        0.0,
+        0.1624116478571057
+      ]
+    },
+    {
+      "id": "kick_left",
+      "label": "Left kick",
+      "joint_positions_rad": {
+        "left_hip_yaw": 0.0,
+        "left_hip_roll": 0.0,
+        "left_hip_pitch": -0.95,
+        "left_knee": 0.1,
+        "left_ankle": 1.05,
+        "neck_pitch": 0.15,
+        "head_pitch": 0.15,
+        "head_yaw": 0.0,
+        "head_roll": 0.0,
+        "mouth": 0.0,
+        "right_hip_yaw": 0.0,
+        "right_hip_roll": 0.0,
+        "right_hip_pitch": 0.4,
+        "right_knee": -0.4,
+        "right_ankle": -0.8
+      },
+      "base_quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "base_position_m": [
+        0.0,
+        0.0,
+        0.14274672939817867
+      ],
+      "support_rule": "seat lowest robot collision geometry on ground after FK",
+      "intended_contacts": [
+        "right_foot"
+      ],
+      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "skates_base_position_m": [
+        0.0,
+        0.0,
+        0.17774672939817868
+      ]
+    },
+    {
+      "id": "kick_right",
+      "label": "Right kick",
+      "joint_positions_rad": {
+        "left_hip_yaw": 0.0,
+        "left_hip_roll": 0.0,
+        "left_hip_pitch": -0.4,
+        "left_knee": 0.4,
+        "left_ankle": 0.8,
+        "neck_pitch": 0.15,
+        "head_pitch": 0.15,
+        "head_yaw": 0.0,
+        "head_roll": 0.0,
+        "mouth": 0.0,
+        "right_hip_yaw": 0.0,
+        "right_hip_roll": 0.0,
+        "right_hip_pitch": 0.95,
+        "right_knee": -0.1,
+        "right_ankle": -1.05
+      },
+      "base_quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "base_position_m": [
+        0.0,
+        0.0,
+        0.14274672939817867
+      ],
+      "support_rule": "seat lowest robot collision geometry on ground after FK",
+      "intended_contacts": [
+        "left_foot"
+      ],
+      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "skates_base_position_m": [
+        0.0,
+        0.0,
+        0.17774672939817868
+      ]
+    },
+    {
+      "id": "skating",
+      "label": "Skating crouch",
+      "joint_positions_rad": {
+        "left_hip_yaw": 0.0,
+        "left_hip_roll": -0.1,
+        "left_hip_pitch": -0.55,
+        "left_knee": 0.55,
+        "left_ankle": 1.1,
+        "neck_pitch": 0.15,
+        "head_pitch": 0.15,
+        "head_yaw": 0.0,
+        "head_roll": 0.0,
+        "mouth": 0.0,
+        "right_hip_yaw": 0.0,
+        "right_hip_roll": 0.1,
+        "right_hip_pitch": 0.55,
+        "right_knee": -0.55,
+        "right_ankle": -1.1
+      },
+      "base_quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "base_position_m": [
+        0.0,
+        0.0,
+        0.1403596650057989
+      ],
+      "support_rule": "seat lowest robot collision geometry on ground after FK",
+      "intended_contacts": [
+        "four wheels"
+      ],
+      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "skates_base_position_m": [
+        0.0,
+        0.0,
+        0.17336784260755755
+      ]
+    },
+    {
+      "id": "getup_back",
+      "label": "Get-up: back contact",
+      "joint_positions_rad": {
+        "left_hip_yaw": 0.0,
+        "left_hip_roll": 0.0,
+        "left_hip_pitch": -0.7,
+        "left_knee": 0.7,
+        "left_ankle": 1.4,
+        "neck_pitch": 0.15,
+        "head_pitch": 0.15,
+        "head_yaw": 0.0,
+        "head_roll": 0.0,
+        "mouth": 0.0,
+        "right_hip_yaw": 0.0,
+        "right_hip_roll": 0.0,
+        "right_hip_pitch": 0.7,
+        "right_knee": -0.7,
+        "right_ankle": -1.4
+      },
+      "base_quaternion_wxyz": [
+        0.7071067811865476,
+        0,
+        -0.7071067811865476,
+        0
+      ],
+      "base_position_m": [
+        0.0,
+        0.0,
+        0.060451084900000014
+      ],
+      "support_rule": "seat lowest robot collision geometry on ground after FK",
+      "intended_contacts": [
+        "back"
+      ],
+      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "skates_base_position_m": [
+        0.0,
+        0.0,
+        0.060451084900000014
+      ]
+    },
+    {
+      "id": "getup_tuck",
+      "label": "Get-up: tuck",
+      "joint_positions_rad": {
+        "left_hip_yaw": 0.0,
+        "left_hip_roll": 0.0,
+        "left_hip_pitch": -0.9,
+        "left_knee": 0.65,
+        "left_ankle": 1.55,
+        "neck_pitch": 0.7,
+        "head_pitch": 0.7,
+        "head_yaw": 0.0,
+        "head_roll": 0.0,
+        "mouth": 0.0,
+        "right_hip_yaw": 0.0,
+        "right_hip_roll": 0.0,
+        "right_hip_pitch": 0.9,
+        "right_knee": -0.65,
+        "right_ankle": -1.55
+      },
+      "base_quaternion_wxyz": [
+        0.8253356149096783,
+        0,
+        -0.5646424733950354,
+        0
+      ],
+      "base_position_m": [
+        0.0,
+        0.0,
+        0.05889966647146975
+      ],
+      "support_rule": "seat lowest robot collision geometry on ground after FK",
+      "intended_contacts": [],
+      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "skates_base_position_m": [
+        0.0,
+        0.0,
+        0.05889966647146975
+      ]
+    },
+    {
+      "id": "roll_tuck",
+      "label": "Forward roll: tuck",
+      "joint_positions_rad": {
+        "left_hip_yaw": 0.0,
+        "left_hip_roll": 0.0,
+        "left_hip_pitch": -0.9,
+        "left_knee": 0.65,
+        "left_ankle": 1.55,
+        "neck_pitch": -0.8,
+        "head_pitch": 0.6,
+        "head_yaw": 0.0,
+        "head_roll": 0.0,
+        "mouth": 0.0,
+        "right_hip_yaw": 0.0,
+        "right_hip_roll": 0.0,
+        "right_hip_pitch": 0.9,
+        "right_knee": -0.65,
+        "right_ankle": -1.55
+      },
+      "base_quaternion_wxyz": [
+        0.9004471023526769,
+        0,
+        0.43496553411123023,
+        0
+      ],
+      "base_position_m": [
+        0.0,
+        0.0,
+        0.1400924179656796
+      ],
+      "support_rule": "seat lowest robot collision geometry on ground after FK",
+      "intended_contacts": [],
+      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "skates_base_position_m": [
+        0.0,
+        0.0,
+        0.17183291533404405
+      ]
+    },
+    {
+      "id": "roll_contact",
+      "label": "Forward roll: head contact",
+      "joint_positions_rad": {
+        "left_hip_yaw": 0.0,
+        "left_hip_roll": 0.0,
+        "left_hip_pitch": -0.9,
+        "left_knee": 0.65,
+        "left_ankle": 1.55,
+        "neck_pitch": -0.8,
+        "head_pitch": 0.6,
+        "head_yaw": 0.0,
+        "head_roll": 0.0,
+        "mouth": 0.0,
+        "right_hip_yaw": 0.0,
+        "right_hip_roll": 0.0,
+        "right_hip_pitch": 0.9,
+        "right_knee": -0.65,
+        "right_ankle": -1.55
+      },
+      "base_quaternion_wxyz": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "base_position_m": [
+        0.0,
+        0.0,
+        0.10964253442023997
+      ],
+      "support_rule": "seat lowest robot collision geometry on ground after FK",
+      "intended_contacts": [
+        "reinforced head top"
+      ],
+      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "skates_base_position_m": [
+        0.0,
+        0.0,
+        0.10964253442023997
+      ]
+    },
+    {
+      "id": "jaw_0",
+      "label": "Jaw detail: 0 degrees",
+      "joint_positions_rad": {
+        "left_hip_yaw": 0.0,
+        "left_hip_roll": 0.0,
+        "left_hip_pitch": 0.0,
+        "left_knee": 0.0,
+        "left_ankle": 0.0,
+        "neck_pitch": 0.0,
+        "head_pitch": 0.0,
+        "head_yaw": 0.0,
+        "head_roll": 0.0,
+        "mouth": 0.0,
+        "right_hip_yaw": 0.0,
+        "right_hip_roll": 0.0,
+        "right_hip_pitch": 0.0,
+        "right_knee": 0.0,
+        "right_ankle": 0.0
+      },
+      "base_position_m": [
+        0.0,
+        0.0,
+        0.1433
+      ],
+      "base_quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "intended_contacts": [],
+      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "skates_base_position_m": [
+        0.0,
+        0.0,
+        0.17830000000000001
+      ]
+    },
+    {
+      "id": "jaw_15",
+      "label": "Jaw detail: 15 degrees",
+      "joint_positions_rad": {
+        "left_hip_yaw": 0.0,
+        "left_hip_roll": 0.0,
+        "left_hip_pitch": 0.0,
+        "left_knee": 0.0,
+        "left_ankle": 0.0,
+        "neck_pitch": 0.0,
+        "head_pitch": 0.0,
+        "head_yaw": 0.0,
+        "head_roll": 0.0,
+        "mouth": 0.26172924590470636,
+        "right_hip_yaw": 0.0,
+        "right_hip_roll": 0.0,
+        "right_hip_pitch": 0.0,
+        "right_knee": 0.0,
+        "right_ankle": 0.0
+      },
+      "base_position_m": [
+        0.0,
+        0.0,
+        0.1433
+      ],
+      "base_quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "intended_contacts": [],
+      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "skates_base_position_m": [
+        0.0,
+        0.0,
+        0.17830000000000001
+      ]
+    },
+    {
+      "id": "jaw_30",
+      "label": "Jaw detail: 30 degrees",
+      "joint_positions_rad": {
+        "left_hip_yaw": 0.0,
+        "left_hip_roll": 0.0,
+        "left_hip_pitch": 0.0,
+        "left_knee": 0.0,
+        "left_ankle": 0.0,
+        "neck_pitch": 0.0,
+        "head_pitch": 0.0,
+        "head_yaw": 0.0,
+        "head_roll": 0.0,
+        "mouth": 0.5233947763630886,
+        "right_hip_yaw": 0.0,
+        "right_hip_roll": 0.0,
+        "right_hip_pitch": 0.0,
+        "right_knee": 0.0,
+        "right_ankle": 0.0
+      },
+      "base_position_m": [
+        0.0,
+        0.0,
+        0.1433
+      ],
+      "base_quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "intended_contacts": [],
+      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "skates_base_position_m": [
+        0.0,
+        0.0,
+        0.17830000000000001
+      ]
+    },
+    {
+      "id": "sit_reduced",
+      "label": "Reduced crouch clearance study",
+      "joint_positions_rad": {
+        "left_hip_yaw": 0.0,
+        "left_hip_roll": 0.0,
+        "left_hip_pitch": -0.7,
+        "left_knee": 0.5,
+        "left_ankle": 1.2,
+        "neck_pitch": 0.15,
+        "head_pitch": 0.15,
+        "head_yaw": 0.0,
+        "head_roll": 0.0,
+        "mouth": 0.0,
+        "right_hip_yaw": 0.0,
+        "right_hip_roll": 0.0,
+        "right_hip_pitch": 0.7,
+        "right_knee": -0.5,
+        "right_ankle": -1.2
+      },
+      "base_quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "base_position_m": [
+        0.0,
+        0.0,
+        0.13437633612702646
+      ],
+      "support_rule": "seat lowest robot collision geometry on ground after FK",
+      "intended_contacts": [
+        "feet"
+      ],
+      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "skates_base_position_m": [
+        0.0,
+        0.0,
+        0.16937633612702646
+      ]
+    },
+    {
+      "id": "pickup_neck_neutral",
+      "label": "Neutral-neck ball approach study",
+      "joint_positions_rad": {
+        "left_hip_yaw": 0.0,
+        "left_hip_roll": 0.0,
+        "left_hip_pitch": -0.8,
+        "left_knee": 0.6,
+        "left_ankle": 1.4,
+        "neck_pitch": 0.0,
+        "head_pitch": 0.5,
+        "head_yaw": 0.0,
+        "head_roll": 0.0,
+        "mouth": 0.5233947744418216,
+        "right_hip_yaw": 0.0,
+        "right_hip_roll": 0.0,
+        "right_hip_pitch": 0.8,
+        "right_knee": -0.6,
+        "right_ankle": -1.4
+      },
+      "base_quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "base_position_m": [
+        0.0,
+        0.0,
+        0.1274116478571057
+      ],
+      "support_rule": "seat lowest robot collision geometry on ground after FK",
+      "intended_contacts": [
+        "feet"
+      ],
+      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "skates_base_position_m": [
+        0.0,
+        0.0,
+        0.1624116478571057
+      ]
+    }
+  ]
+}

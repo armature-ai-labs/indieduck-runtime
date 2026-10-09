@@ -1,0 +1,230 @@
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.24
+   Compiling quote v1.0.47
+   Compiling serde_core v1.0.229
+   Compiling libc v0.2.189
+   Compiling zmij v1.0.23
+   Compiling memchr v2.8.3
+   Compiling serde v1.0.229
+   Compiling serde_json v1.0.151
+   Compiling typenum v1.20.1
+   Compiling cfg-if v1.0.4
+   Compiling itoa v1.0.18
+   Compiling getrandom v0.4.3
+   Compiling thiserror v2.0.19
+   Compiling once_cell v1.21.4
+   Compiling rustix v1.1.4
+   Compiling utf8parse v0.2.2
+   Compiling anstyle-parse v1.0.0
+   Compiling hybrid-array v0.4.13
+   Compiling anstyle v1.0.14
+   Compiling is_terminal_polyfill v1.70.2
+   Compiling anstyle-query v1.1.5
+   Compiling bitflags v2.13.1
+   Compiling colorchoice v1.0.5
+   Compiling roxmltree v0.21.1
+   Compiling clap_lex v1.1.0
+   Compiling fastrand v2.5.0
+   Compiling anstream v1.0.0
+   Compiling winnow v1.0.4
+   Compiling anyhow v1.0.104
+   Compiling block-buffer v0.12.1
+   Compiling crypto-common v0.2.2
+   Compiling const-oid v0.10.2
+   Compiling strsim v0.11.1
+   Compiling heck v0.5.0
+   Compiling tracing-core v0.1.36
+   Compiling winnow v0.7.15
+   Compiling clap_builder v4.6.2
+   Compiling toml_parser v1.1.2+spec-1.1.0
+   Compiling pin-project-lite v0.2.17
+   Compiling toml_writer v1.1.2+spec-1.1.0
+   Compiling errno v0.3.14
+   Compiling cpufeatures v0.3.0
+   Compiling syn v3.0.3
+   Compiling syn v2.0.119
+   Compiling hound v3.5.1
+   Compiling digest v0.11.3
+   Compiling sha2 v0.11.0
+   Compiling tempfile v3.27.0
+   Compiling semver v1.0.28
+   Compiling serde_spanned v1.1.1
+   Compiling toml_datetime v0.7.5+spec-1.1.0
+   Compiling toml v0.9.12+spec-1.1.0
+   Compiling serde_derive v1.0.229
+   Compiling thiserror-impl v2.0.19
+   Compiling clap_derive v4.6.4
+   Compiling tracing-attributes v0.1.31
+   Compiling clap v4.6.4
+   Compiling tracing v0.1.44
+   Compiling kinematics v0.10.0 (/Users/dev/Desktop/IndieDuck/r20-workspace/indieduck-runtime/kinematics)
+   Compiling sounds v0.10.0 (/Users/dev/Desktop/IndieDuck/r20-workspace/indieduck-runtime/sounds)
+   Compiling duck-ipc-proto v0.10.0 (/Users/dev/Desktop/IndieDuck/r20-workspace/indieduck-runtime/duck-ipc-proto)
+   Compiling odometry v0.10.0 (/Users/dev/Desktop/IndieDuck/r20-workspace/indieduck-runtime/odometry)
+   Compiling robotd-params v0.10.0 (/Users/dev/Desktop/IndieDuck/r20-workspace/indieduck-runtime/robotd-params)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 11.58s
+     Running unittests src/lib.rs (target/debug/deps/duck_ipc_proto-cb1b05e68b95f063)
+
+running 49 tests
+test tests::a_binary_outside_the_layout_has_no_release ... ok
+test tests::a_quantised_register_is_good_enough_to_cast_from ... ok
+test tests::a_deleted_binary_still_names_its_release ... ok
+test tests::a_dev_release_keeps_the_suffix_that_distinguishes_it ... ok
+test tests::a_beacon_survives_the_advertisement ... ok
+test tests::a_pairing_pin_is_redacted_from_debug_output ... ok
+test tests::a_release_path_names_its_version ... ok
+test tests::a_roster_of_the_wrong_length_is_not_a_beacon ... ok
+test tests::a_usb_pad_is_not_on_the_radio ... ok
+test tests::a_bus_section_missing_a_counter_still_parses ... ok
+test tests::a_ref_with_a_slash_survives_the_wire ... ok
+test tests::a_wifi_key_is_redacted_from_debug_output ... ok
+test tests::a_missing_battery_is_unknown_not_empty ... ok
+test tests::a_wifi_key_still_serialises ... ok
+test tests::a_clean_frame_carries_neither_alarm ... ok
+test tests::a_state_frame_missing_odom_still_parses ... ok
+test tests::a_call_serialises_as_jsonrpc ... ok
+test tests::an_address_payload_is_not_mistaken_for_a_beacon ... ok
+test tests::an_imu_section_missing_its_newest_field_still_parses ... ok
+test tests::a_notification_parses_without_an_id_field ... ok
+test tests::a_log_entry_without_a_run_still_parses ... ok
+test tests::an_unknown_run_event_keeps_the_rest_of_the_transcript ... ok
+test tests::a_run_record_is_one_flat_line ... ok
+test tests::an_unlimited_command_omits_limited_by ... ok
+test tests::build_info_is_explicit_about_an_unknown_revision ... ok
+test tests::build_info_macro_reports_the_calling_crate ... ok
+test tests::an_unknown_params_member_is_refused_by_name ... ok
+test tests::component_carrying_calls_expose_it ... ok
+test tests::every_call_covers_every_variant ... ok
+test tests::degraded_is_omitted_when_false_and_present_when_true ... ok
+test tests::every_call_has_a_distinct_method ... ok
+test tests::health_without_the_degraded_field_is_not_degraded ... ok
+test tests::from_dir_round_trips_and_is_omitted_when_unset ... ok
+test tests::hello_result_round_trips_with_and_without_a_revision ... ok
+test tests::methods_without_params_accept_any_params_field ... ok
+test tests::notifications_carry_no_id ... ok
+test tests::only_authenticate_has_no_service ... ok
+test tests::only_software_changing_calls_are_mutating ... ok
+test tests::an_identity_survives_being_published_and_read_back ... ok
+test tests::pairing_a_pad_needs_no_parameters ... ok
+test tests::responses_omit_the_half_they_do_not_use ... ok
+test tests::robot_results_round_trip ... ok
+test tests::subscriptions_are_the_only_thing_on_the_stream_lane ... ok
+test tests::target_round_trips_in_every_form ... ok
+test tests::every_call_round_trips_over_the_wire ... ok
+test tests::pad_reports_round_trip_under_their_tag ... ok
+test tests::unknown_methods_and_bad_params_get_different_codes ... ok
+test tests::robot_state_uses_the_documented_field_names ... ok
+test tests::the_theremin_block_is_absent_until_there_is_a_theremin ... ok
+
+test result: ok. 49 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/odometry-32b2400fd35549e2)
+
+running 5 tests
+test tests::the_anchor_switches_only_after_the_claim_holds ... ok
+test tests::the_mouth_moves_no_odometry ... ok
+test tests::yaw_follows_the_imu ... ok
+test tests::stance_leg_motion_translates_the_trunk_continuously ... ok
+test tests::standing_still_stays_at_the_origin ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/robotd_params-476c19212c5844e5)
+
+running 27 tests
+test registry::tests::the_feature_switches_are_the_expected_set ... ok
+test tests::a_clean_file_has_nothing_to_report ... ok
+test tests::an_explicitly_named_missing_file_is_an_error ... ok
+test registry::tests::choices_match_the_types ... ok
+test tests::a_missing_default_file_falls_back_to_defaults ... ok
+test tests::a_bad_value_is_still_rejected_with_its_position ... ok
+test tests::a_section_from_another_branch_does_not_stop_the_robot ... ok
+test tests::an_unset_bitrate_follows_the_quality ... ok
+test tests::every_variant_label_round_trips ... ok
+test tests::absent_sections_take_their_defaults ... ok
+test tests::command_smoothing_defaults_match_the_prototype ... ok
+test tests::a_bad_value_beside_an_unknown_section_names_the_bad_value ... ok
+test tests::every_quality_label_round_trips ... ok
+test tests::a_syntax_error_is_still_a_syntax_error ... ok
+test tests::every_congestion_label_round_trips ... ok
+test tests::an_impossible_rate_is_rejected_at_startup ... ok
+test tests::a_typo_is_ignored_and_leaves_the_real_key_alone ... ok
+test tests::microduck_resolves_xl330_actuator_numbers ... ok
+test tests::the_capture_device_does_not_double_its_subdevice ... ok
+test tests::the_defaults_are_what_mediad_streamed_before_the_section_existed ... ok
+test tests::walk_mode_resolves_to_the_prototype_alpha_config ... ok
+test tests::a_bitrate_in_kilobits_is_refused ... ok
+test tests::none_and_unity_are_the_off_switches ... ok
+test tests::roller_mode_resolves_to_the_prototype_roller_preset ... ok
+test tests::the_shipped_example_matches_the_defaults ... ok
+test registry::tests::the_registry_covers_every_key_exactly ... ok
+test tests::the_old_health_section_name_is_ignored_by_name ... ok
+
+test result: ok. 27 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/sounds-c6f70224a8c51f2c)
+
+running 60 tests
+test chorale::beat::tests::the_conductor_counts_beats_and_not_polls ... ok
+test chorale::beat::tests::an_outlier_is_dropped_rather_than_averaged_in ... ok
+test chorale::beat::tests::silence_from_the_conductor_is_not_silence_from_the_duck ... ok
+test chorale::beat::tests::the_beat_counter_wraps_without_the_music_jumping ... ok
+test chorale::beat::tests::the_fit_averages_the_jitter_down ... ok
+test chorale::beat::tests::a_follower_waits_before_it_sings ... ok
+test chorale::midi::tests::a_named_track_is_believed_over_its_pitches ... ok
+test chorale::midi::tests::a_score_exported_top_staff_first_still_puts_the_bass_on_the_bass ... ok
+test chorale::midi::tests::more_than_four_voices_says_what_it_left_out ... ok
+test chorale::midi::tests::a_single_polyphonic_track_is_split_into_voices ... ok
+test chorale::midi::tests::bad_files_are_errors_and_never_panics ... ok
+test chorale::midi::tests::a_tempo_change_is_reported_rather_than_hidden ... ok
+test chorale::midi::tests::running_status_is_understood ... ok
+test chorale::tests::a_rest_is_a_real_gap ... ok
+test chorale::tests::a_solo_moves_over_what_is_held_under_it ... ok
+test chorale::midi::tests::timing_and_velocity_survive_the_trip ... ok
+test chorale::tests::a_change_of_syllable_or_dynamic_is_a_new_note ... ok
+test chorale::tests::a_build_staggers_the_entries_and_lands_them_together ... ok
+test chorale::tests::a_joiner_in_the_gap_moves_nobody ... ok
+test chorale::tests::a_duck_joining_does_not_move_anyone_already_singing ... ok
+test chorale::tests::casting_does_not_depend_on_the_order_the_ducks_arrive_in ... ok
+test chorale::tests::small_ensembles_take_the_voices_a_chord_needs_most ... ok
+test chorale::tests::every_duck_sings_the_same_pitch_for_the_same_note ... ok
+test chorale::tests::the_ensemble_sets_are_nested ... ok
+test chorale::tests::the_lowest_duck_sings_bass ... ok
+test chorale::tests::the_lowest_voice_in_the_roster_gets_the_lowest_part ... ok
+test chorale::text::tests::a_mark_holds_until_it_is_changed ... ok
+test chorale::text::tests::a_build_reads_its_optional_direction ... ok
+test chorale::text::tests::comments_and_blank_lines_are_ignored ... ok
+test chorale::text::tests::a_new_vowel_on_the_same_note_is_a_new_note ... ok
+test chorale::text::tests::a_solo_hums_underneath_by_default ... ok
+test personality::tests::a_seed_is_a_stable_identity ... ok
+test chorale::text::tests::note_names_follow_the_editors_octave_numbering ... ok
+test chorale::text::tests::errors_say_which_line_and_what ... ok
+test personality::tests::variant_rng_is_stable_and_distinct ... ok
+test rng::tests::crc32_matches_zlib ... ok
+test chorale::tests::a_fifth_duck_doubles_the_part_nearest_its_voice ... ok
+test personality::tests::traits_stay_in_their_ranges ... ok
+test rng::tests::the_stream_is_pinned ... ok
+test rng::tests::uniform_stays_in_range ... ok
+test chorale::beat::tests::a_whole_quartet_agrees_within_the_ensemble_budget ... ok
+test rng::tests::normals_have_sane_moments ... ok
+test stream::tests::the_pitch_map_is_linear_in_semitones ... ok
+test stream::tests::the_range_follows_the_personality ... ok
+test stream::tests::block_size_does_not_change_the_signal ... ok
+test synth::tests::moving_average_matches_numpy_same_mode ... ok
+test synth::tests::normalise_hits_the_target_peak ... ok
+test synth::tests::lerp_matches_interp_semantics ... ok
+test tests::the_seed_derivation_matches_the_installer ... ok
+test synth::tests::envelopes_stay_in_unit_range ... ok
+test stream::tests::keying_the_level_fades_instead_of_clicking ... ok
+test stream::tests::a_note_below_everything_is_not_amplified_into_distortion ... ok
+test stream::tests::the_breath_is_a_whisper_and_not_a_hiss ... ok
+test stream::tests::a_speaker_rolloff_moves_the_bass_into_the_harmonics ... ok
+test stream::tests::an_open_mouth_is_brighter ... ok
+test voices::tests::the_wheee_loop_wraps_without_a_click ... ok
+test stream::tests::the_bass_lift_cap_actually_caps ... ok
+test stream::tests::a_long_ride_stays_finite_and_bounded ... ok
+test tests::render_all_writes_the_layout_the_robot_plays_from ... ok
+test voices::tests::every_recipe_renders_sane_audio ... ok
+
+test result: ok. 60 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.44s
+

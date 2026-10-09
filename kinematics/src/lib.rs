@@ -30,10 +30,8 @@ pub use mjcf::ParseError;
 
 use std::sync::LazyLock;
 
-/// The alpha kinematic tree, stripped from the same `mjlab_microduck` scene the
-/// walking policies are trained in. Updating the mechanics means replacing this
-/// file and rerunning the fixture generator — no Rust changes.
-const ALPHA_MJCF: &str = include_str!("../assets/alpha/robot_walk.xml");
+/// Generated IndieDuck R20 kinematic tree. Sync from the canonical RL model.
+const INDIEDUCK_MJCF: &str = include_str!("../assets/indieduck/kinematics.xml");
 
 /// A site, resolved. Cheap to copy, only meaningful with the model that
 /// produced it.
@@ -119,14 +117,14 @@ impl Model {
         })
     }
 
-    /// The alpha robot's model, parsed once for the process. The embedded asset
-    /// is covered by the MuJoCo fixture test, so this cannot fail at runtime
-    /// without failing CI first.
-    pub fn alpha() -> &'static Model {
-        static ALPHA: LazyLock<Model> =
-            LazyLock::new(|| Model::parse(ALPHA_MJCF).expect("embedded alpha MJCF parses"));
-        &ALPHA
+    /// The IndieDuck R20 model, parsed once for the process.
+    pub fn indieduck() -> &'static Model {
+        static MODEL: LazyLock<Model> = LazyLock::new(|| Model::parse(INDIEDUCK_MJCF).expect("embedded IndieDuck R20 MJCF parses"));
+        &MODEL
     }
+
+    /// Source compatibility alias. This fork embeds the IndieDuck R20 model.
+    pub fn alpha() -> &'static Model { Self::indieduck() }
 
     /// How long the angle slice for [`Model::site_pose`] must be.
     pub fn num_joints(&self) -> usize {

@@ -1,0 +1,67 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.19s
+     Running unittests src/lib.rs (target/debug/deps/sounds-6065cb2bbd4b20c9)
+
+running 60 tests
+test chorale::beat::tests::the_conductor_counts_beats_and_not_polls ... ok
+test chorale::beat::tests::the_beat_counter_wraps_without_the_music_jumping ... ok
+test chorale::beat::tests::an_outlier_is_dropped_rather_than_averaged_in ... ok
+test chorale::beat::tests::a_follower_waits_before_it_sings ... ok
+test chorale::beat::tests::silence_from_the_conductor_is_not_silence_from_the_duck ... ok
+test chorale::midi::tests::a_single_polyphonic_track_is_split_into_voices ... ok
+test chorale::midi::tests::a_score_exported_top_staff_first_still_puts_the_bass_on_the_bass ... ok
+test chorale::midi::tests::a_tempo_change_is_reported_rather_than_hidden ... ok
+test chorale::beat::tests::the_fit_averages_the_jitter_down ... ok
+test chorale::midi::tests::running_status_is_understood ... ok
+test chorale::midi::tests::a_named_track_is_believed_over_its_pitches ... ok
+test chorale::midi::tests::more_than_four_voices_says_what_it_left_out ... ok
+test chorale::midi::tests::timing_and_velocity_survive_the_trip ... ok
+test chorale::tests::a_build_staggers_the_entries_and_lands_them_together ... ok
+test chorale::tests::a_change_of_syllable_or_dynamic_is_a_new_note ... ok
+test chorale::midi::tests::bad_files_are_errors_and_never_panics ... ok
+test chorale::tests::a_duck_joining_does_not_move_anyone_already_singing ... ok
+test chorale::tests::a_joiner_in_the_gap_moves_nobody ... ok
+test chorale::tests::a_rest_is_a_real_gap ... ok
+test chorale::tests::a_solo_moves_over_what_is_held_under_it ... ok
+test chorale::tests::casting_does_not_depend_on_the_order_the_ducks_arrive_in ... ok
+test chorale::tests::every_duck_sings_the_same_pitch_for_the_same_note ... ok
+test chorale::tests::small_ensembles_take_the_voices_a_chord_needs_most ... ok
+test chorale::tests::the_ensemble_sets_are_nested ... ok
+test chorale::tests::the_lowest_voice_in_the_roster_gets_the_lowest_part ... ok
+test chorale::tests::the_lowest_duck_sings_bass ... ok
+test chorale::text::tests::a_build_reads_its_optional_direction ... ok
+test chorale::text::tests::a_mark_holds_until_it_is_changed ... ok
+test chorale::text::tests::a_new_vowel_on_the_same_note_is_a_new_note ... ok
+test chorale::text::tests::a_solo_hums_underneath_by_default ... ok
+test chorale::text::tests::comments_and_blank_lines_are_ignored ... ok
+test chorale::text::tests::note_names_follow_the_editors_octave_numbering ... ok
+test personality::tests::a_seed_is_a_stable_identity ... ok
+test chorale::text::tests::errors_say_which_line_and_what ... ok
+test personality::tests::variant_rng_is_stable_and_distinct ... ok
+test rng::tests::crc32_matches_zlib ... ok
+test rng::tests::the_stream_is_pinned ... ok
+test chorale::tests::a_fifth_duck_doubles_the_part_nearest_its_voice ... ok
+test personality::tests::traits_stay_in_their_ranges ... ok
+test rng::tests::uniform_stays_in_range ... ok
+test stream::tests::the_pitch_map_is_linear_in_semitones ... ok
+test chorale::beat::tests::a_whole_quartet_agrees_within_the_ensemble_budget ... ok
+test stream::tests::the_range_follows_the_personality ... ok
+test synth::tests::envelopes_stay_in_unit_range ... ok
+test stream::tests::block_size_does_not_change_the_signal ... ok
+test synth::tests::lerp_matches_interp_semantics ... ok
+test synth::tests::normalise_hits_the_target_peak ... ok
+test synth::tests::moving_average_matches_numpy_same_mode ... ok
+test rng::tests::normals_have_sane_moments ... ok
+test tests::the_seed_derivation_matches_the_installer ... ok
+test stream::tests::keying_the_level_fades_instead_of_clicking ... ok
+test stream::tests::a_note_below_everything_is_not_amplified_into_distortion ... ok
+test stream::tests::the_breath_is_a_whisper_and_not_a_hiss ... ok
+test stream::tests::an_open_mouth_is_brighter ... ok
+test stream::tests::a_speaker_rolloff_moves_the_bass_into_the_harmonics ... ok
+test voices::tests::the_wheee_loop_wraps_without_a_click ... ok
+test stream::tests::the_bass_lift_cap_actually_caps ... ok
+test stream::tests::a_long_ride_stays_finite_and_bounded ... ok
+test tests::render_all_writes_the_layout_the_robot_plays_from ... ok
+test voices::tests::every_recipe_renders_sane_audio ... ok
+
+test result: ok. 60 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.53s
+
