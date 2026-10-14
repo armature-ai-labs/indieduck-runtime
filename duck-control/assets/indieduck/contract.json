@@ -539,7 +539,7 @@
     "cad_accessory_included": true,
     "manifest_sha256": "2ade517752619691572c328da9cdca6852551786654b4d0940a11402d423ec1a"
   },
-  "cad_manifest_sha256": "3ae296ab5b86ffaf83f9e3c7c1045df10b718807985378fb2d3f9646750cecda",
+  "cad_manifest_sha256": "b3374c774b56259211ec016ea583d7bd2369a98170a4a4c65ebaf02efdb6ed9a",
   "visual_mesh_source": "Complete R25 visible CAD assembly plus attributed provisional skate accessory; see asset notices",
   "mouth_motor_limits_rad": [
     0,
@@ -550,7 +550,7 @@
     "selected_native_bam": {
       "model": "hd1910/m1",
       "implementation": "src/mjlab_microduck/sim/bam_native.py",
-      "scope": "CPU diagnostic on canonical R20 model; GPU task migration and IndieDuck measurement pending",
+      "scope": "CPU diagnostic on the canonical R25 model; GPU task migration and IndieDuck measurement pending",
       "decision": "D8 in decisions-2026-10-06.md",
       "servo_voltage_v": 5.0,
       "command_delay_s": 0.029,
