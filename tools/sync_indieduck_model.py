@@ -18,8 +18,8 @@ if mujoco.__version__ != '3.10.0':
     raise SystemExit('FK fixtures require MuJoCo 3.10.0')
 contract = json.loads((model_dir / 'contract.json').read_text())
 linkage = contract['mouth_linkage']
-if contract['cad_revision'] != 'R20' or linkage['type'] != 'direct_drive':
-    raise SystemExit('Expected canonical R20 direct-drive model; no legacy crank fallback')
+if contract['cad_revision'] not in ('R20','R25') or linkage['type'] != 'direct_drive':
+    raise SystemExit('Expected a canonical R20 or R25 direct-drive model; no legacy crank fallback')
 if len(contract['physical_joint_names']) != 15 or len(contract['policy_action_joints']) != 14:
     raise SystemExit('Expected 15 physical joints and 14 policy actions')
 if contract['physical_joint_names'][9] != 'mouth' or 'mouth' in contract['policy_action_joints']:
@@ -28,7 +28,7 @@ for source, destination in [('kinematics.xml', 'kinematics/assets/indieduck/kine
     out = root / destination
     out.parent.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(model_dir / source, out)
-generated = '// Generated geometric mapping from canonical IndieDuck R20 contract. Apache-2.0.\n'
+generated = f"// Generated geometric mapping from canonical IndieDuck {contract['cad_revision']} contract. Apache-2.0.\n"
 generated += f"pub const INDIEDUCK_MOUTH_OPEN: f64 = {float(linkage['motor_open_rad'])};\n"
 generated += f"pub const INDIEDUCK_MOUTH_CLOSED: f64 = {float(linkage['motor_closed_rad'])};\n"
 identity = f"pub const MODEL_ID: &str = {json.dumps(contract['model_id'])};\n"

@@ -30,7 +30,7 @@ pub use mjcf::ParseError;
 
 use std::sync::LazyLock;
 
-/// Generated IndieDuck R20 kinematic tree. Sync from the canonical RL model.
+/// Generated IndieDuck R25 kinematic tree. Sync from the canonical RL model.
 const INDIEDUCK_MJCF: &str = include_str!("../assets/indieduck/kinematics.xml");
 
 /// A site, resolved. Cheap to copy, only meaningful with the model that
@@ -117,13 +117,13 @@ impl Model {
         })
     }
 
-    /// The IndieDuck R20 model, parsed once for the process.
+    /// The IndieDuck R25 model, parsed once for the process.
     pub fn indieduck() -> &'static Model {
-        static MODEL: LazyLock<Model> = LazyLock::new(|| Model::parse(INDIEDUCK_MJCF).expect("embedded IndieDuck R20 MJCF parses"));
+        static MODEL: LazyLock<Model> = LazyLock::new(|| Model::parse(INDIEDUCK_MJCF).expect("embedded IndieDuck R25 MJCF parses"));
         &MODEL
     }
 
-    /// Source compatibility alias. This fork embeds the IndieDuck R20 model.
+    /// Source compatibility alias. This fork embeds the IndieDuck R25 model.
     pub fn alpha() -> &'static Model { Self::indieduck() }
 
     /// How long the angle slice for [`Model::site_pose`] must be.

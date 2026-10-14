@@ -226,7 +226,7 @@ struct Args {
     #[arg(long, conflicts_with = "sim")]
     fake: bool,
 
-    /// Connect to the local IndieDuck R20 physics study. No hardware is opened.
+    /// Connect to the local IndieDuck R25 physics study. No hardware is opened.
     #[arg(long, value_name = "HOST:PORT", requires = "no_policy")]
     sim: Option<String>,
 
@@ -267,7 +267,7 @@ enum Command {
 
 fn require_study_transport(args: &Args) -> Result<(), &'static str> {
     if !args.fake && args.sim.is_none() {
-        return Err("R20 study supports --sim HOST:PORT --no-policy or --fake only. Physical profiles remain blocked until pack-voltage sensing, servo calibration and home clearances are validated.");
+        return Err("R25 study supports --sim HOST:PORT --no-policy or --fake only. Physical profiles remain blocked until pack-voltage sensing, servo calibration and home clearances are validated.");
     }
     Ok(())
 }
@@ -857,7 +857,7 @@ fn spawn_control_thread(
             if let Some(address) = sim {
                 match duck_control::sim::RemoteIo::connect(&address) {
                     Ok((io, imu)) => {
-                        tracing::info!(%address, "IndieDuck R20 simulator connected, policies disabled");
+                        tracing::info!(%address, "IndieDuck R25 simulator connected, policies disabled");
                         runtime.block_on(control_loop(io, imu, state, intents, params, period, poweroff));
                     }
                     Err(error) => {

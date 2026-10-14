@@ -6,7 +6,7 @@
 resolver = "3"
 members = ["btd", "configd", "duck-control", "duck-detect", "duck-ipc-proto", "duckctl", "kinematics", "mediad", "odometry", "padd", "pet-detect", "sounds", "tof", "updater", "robotctl", "robotd", "robotd-params", "test-support", "xtask"]
 
-# The R20 contributor release defaults to the simulation daemon and checked libraries.
+# The R25 contributor release defaults to the simulation daemon and checked libraries.
 # Retained device/packaging crates remain available with explicit -p or --workspace,
 # but require excluded deployment assets and are not a supported hardware release.
 default-members = ["duck-control", "duck-ipc-proto", "kinematics", "odometry", "robotd", "robotd-params", "sounds"]

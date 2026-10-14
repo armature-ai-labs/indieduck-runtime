@@ -23,6 +23,10 @@ Neither selected upstream tree contains Git submodule entries or a `.gitmodules`
 
 Upstream developer paths in test fixtures and examples remain unchanged for source fidelity. They are public upstream examples, not paths from an IndieDuck maintainer's machine. Some manual scripts retain upstream-specific defaults that need review before use. No GitHub Actions workflows or deployment keys are included.
 
+## R25 simulation contributor release (14 October 2026)
+
+The R25 contract (model `indieduck-r25`) is generated from the canonical indieduck-rl model built on the R25 CAD exterior with the unchanged R20 joint chain. The sync script now takes the revision from the canonical contract; neck pitch limits are the CAD-verified -65 to +27.5 degrees. No change to the protocol, jaw mapping or startup guard.
+
 ## R20 simulation contributor release
 
 Armature AI Labs added the R20 direct-drive jaw mapping, revision-bound runtime interfaces and a physical-startup guard. Generated kinematics and FK fixtures originate from the canonical IndieDuck model in `indieduck-rl`, not independent hardware calibration. R07 integration records remain historical.

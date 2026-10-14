@@ -8,4 +8,4 @@ Keep changes focused and describe the problem, affected interface and evidence. 
 - Keep credentials, robot network details, private datasets, generated build output and local deployment configuration out of commits.
 - Prefer small pull requests. Include only related changes and explain any upstream-source edits in the provenance change record.
 
-Start with the simulation-only workflow in [R20-STUDY.md](R20-STUDY.md). The canonical model belongs in `indieduck-rl`; regenerate runtime interfaces instead of hand-editing model copies. Hardware deployment, auxiliary renderer assets and packaging remain separate integration work.
+Start with the simulation-only workflow in [R25-STUDY.md](R25-STUDY.md). The canonical model belongs in `indieduck-rl`; regenerate runtime interfaces instead of hand-editing model copies. Hardware deployment, auxiliary renderer assets and packaging remain separate integration work.

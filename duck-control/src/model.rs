@@ -1,8 +1,8 @@
 //! The robot, as data.
 //!
-//! The inherited policy baseline is retained for compatibility. The R20 direct-drive jaw and
+//! The inherited policy baseline is retained for compatibility. The R25 direct-drive jaw and
 //! simulator home pose are generated from the canonical IndieDuck model contract.
-//! Hardware calibration and trained R20 policies remain separate work.
+//! Hardware calibration and trained R25 policies remain separate work.
 
 /// Left leg (5) · neck/head/mouth (5) · right leg (5).
 pub const NUM_JOINTS: usize = 15;
@@ -88,7 +88,7 @@ pub fn mouth_target(open: f64) -> f64 {
 // Geometric motor limits and home pose generated from the canonical CAD contract.
 include!("../assets/indieduck/linkage.rs");
 
-/// Opening fraction to the R20 direct-drive joint angle, not physical servo calibration.
+/// Opening fraction to the R25 direct-drive joint angle, not physical servo calibration.
 pub fn indieduck_mouth_target(open: f64) -> f64 {
     let open = if open.is_finite() { open.clamp(0.0, 1.0) } else { 0.0 };
     INDIEDUCK_MOUTH_CLOSED + open * (INDIEDUCK_MOUTH_OPEN - INDIEDUCK_MOUTH_CLOSED)
@@ -220,7 +220,7 @@ mod tests {
     #[test]
     fn mouth_target_matches_direct_drive_contract() {
         let contract: serde_json::Value = serde_json::from_str(include_str!("../assets/indieduck/contract.json")).unwrap();
-        assert_eq!(contract["cad_revision"], "R20");
+        assert_eq!(contract["cad_revision"], "R25");
         assert_eq!(contract["mouth_linkage"]["type"], "direct_drive");
         assert_eq!(INDIEDUCK_MOUTH_OPEN, contract["mouth_linkage"]["motor_open_rad"].as_f64().unwrap());
         assert_eq!(INDIEDUCK_MOUTH_CLOSED, contract["mouth_linkage"]["motor_closed_rad"].as_f64().unwrap());

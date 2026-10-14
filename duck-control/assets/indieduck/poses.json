@@ -1,5 +1,5 @@
 {
-  "model_id": "indieduck-r20",
+  "model_id": "indieduck-r25",
   "contract_version": 2,
   "poses": [
     {
@@ -35,7 +35,7 @@
       ],
       "support_rule": "seat lowest robot collision geometry on ground after FK",
       "intended_contacts": [],
-      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "status": "Illustrative R25 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
       "skates_base_position_m": [
         0.0,
         0.0,
@@ -44,7 +44,7 @@
     },
     {
       "id": "stand",
-      "label": "R20 natural standing",
+      "label": "R25 natural standing",
       "joint_positions_rad": {
         "left_hip_yaw": -0.2617993877991494,
         "left_hip_roll": 0.0,
@@ -75,7 +75,7 @@
       ],
       "support_rule": "seat lowest robot collision geometry on ground after FK",
       "intended_contacts": [],
-      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "status": "Illustrative R25 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
       "skates_base_position_m": [
         0.0,
         0.0,
@@ -117,7 +117,7 @@
       "intended_contacts": [
         "left_foot"
       ],
-      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "status": "Illustrative R25 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
       "skates_base_position_m": [
         0.0,
         0.0,
@@ -159,7 +159,7 @@
       "intended_contacts": [
         "right_foot"
       ],
-      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "status": "Illustrative R25 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
       "skates_base_position_m": [
         0.0,
         0.0,
@@ -202,7 +202,7 @@
         "feet",
         "rear trunk"
       ],
-      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "status": "Illustrative R25 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
       "skates_base_position_m": [
         0.0,
         0.0,
@@ -242,7 +242,7 @@
       ],
       "support_rule": "seat lowest robot collision geometry on ground after FK",
       "intended_contacts": [],
-      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "status": "Illustrative R25 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
       "skates_base_position_m": [
         0.0,
         0.0,
@@ -282,7 +282,7 @@
       ],
       "support_rule": "seat lowest robot collision geometry on ground after FK",
       "intended_contacts": [],
-      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "status": "Illustrative R25 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
       "skates_base_position_m": [
         0.0,
         0.0,
@@ -324,7 +324,7 @@
       "intended_contacts": [
         "right_foot"
       ],
-      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "status": "Illustrative R25 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
       "skates_base_position_m": [
         0.0,
         0.0,
@@ -366,7 +366,7 @@
       "intended_contacts": [
         "left_foot"
       ],
-      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "status": "Illustrative R25 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
       "skates_base_position_m": [
         0.0,
         0.0,
@@ -408,7 +408,7 @@
       "intended_contacts": [
         "four wheels"
       ],
-      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "status": "Illustrative R25 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
       "skates_base_position_m": [
         0.0,
         0.0,
@@ -444,17 +444,17 @@
       "base_position_m": [
         0.0,
         0.0,
-        0.060451084900000014
+        0.06430000000000001
       ],
       "support_rule": "seat lowest robot collision geometry on ground after FK",
       "intended_contacts": [
         "back"
       ],
-      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "status": "Illustrative R25 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
       "skates_base_position_m": [
         0.0,
         0.0,
-        0.060451084900000014
+        0.06430000000000001
       ]
     },
     {
@@ -486,15 +486,15 @@
       "base_position_m": [
         0.0,
         0.0,
-        0.05889966647146975
+        0.06337359794075159
       ],
       "support_rule": "seat lowest robot collision geometry on ground after FK",
       "intended_contacts": [],
-      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "status": "Illustrative R25 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
       "skates_base_position_m": [
         0.0,
         0.0,
-        0.05889966647146975
+        0.06337359794075159
       ]
     },
     {
@@ -530,7 +530,7 @@
       ],
       "support_rule": "seat lowest robot collision geometry on ground after FK",
       "intended_contacts": [],
-      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "status": "Illustrative R25 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
       "skates_base_position_m": [
         0.0,
         0.0,
@@ -566,17 +566,17 @@
       "base_position_m": [
         0.0,
         0.0,
-        0.10964253442023997
+        0.11859107180878761
       ],
       "support_rule": "seat lowest robot collision geometry on ground after FK",
       "intended_contacts": [
         "reinforced head top"
       ],
-      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "status": "Illustrative R25 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
       "skates_base_position_m": [
         0.0,
         0.0,
-        0.10964253442023997
+        0.11859107180878761
       ]
     },
     {
@@ -611,7 +611,7 @@
         0
       ],
       "intended_contacts": [],
-      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "status": "Illustrative R25 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
       "skates_base_position_m": [
         0.0,
         0.0,
@@ -650,7 +650,7 @@
         0
       ],
       "intended_contacts": [],
-      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "status": "Illustrative R25 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
       "skates_base_position_m": [
         0.0,
         0.0,
@@ -689,7 +689,7 @@
         0
       ],
       "intended_contacts": [],
-      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "status": "Illustrative R25 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
       "skates_base_position_m": [
         0.0,
         0.0,
@@ -731,7 +731,7 @@
       "intended_contacts": [
         "feet"
       ],
-      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "status": "Illustrative R25 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
       "skates_base_position_m": [
         0.0,
         0.0,
@@ -773,7 +773,7 @@
       "intended_contacts": [
         "feet"
       ],
-      "status": "Illustrative R20 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
+      "status": "Illustrative R25 pose; numerical execution and geometric clearance are separate checks; physical motion unverified",
       "skates_base_position_m": [
         0.0,
         0.0,
