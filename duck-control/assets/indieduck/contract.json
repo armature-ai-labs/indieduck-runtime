@@ -74,14 +74,15 @@
         -1
       ],
       "limits_rad": [
-        -0.4363323129985824,
-        0.5235987755982988
+        -0.33161255787892263,
+        0.0
       ],
       "zero_rad": 0,
       "motor_id": 20,
       "motor_sign": 1,
       "encoder_home_offset_rad": null,
-      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending",
+      "limits_note": "R25 with covers trimmed (15 Oct 2026): CAD-verified clear of every part in 1 deg steps from the standing pose, other joints standing. Inner stop: the two hip brackets meet."
     },
     {
       "name": "left_hip_roll",
@@ -98,14 +99,15 @@
         0
       ],
       "limits_rad": [
-        -0.3839724354387525,
+        -0.3141592653589793,
         0.3839724354387525
       ],
       "zero_rad": 0,
       "motor_id": 21,
       "motor_sign": 1,
       "encoder_home_offset_rad": null,
-      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending",
+      "limits_note": "R25 with covers trimmed (15 Oct 2026): CAD-verified clear of every part in 1 deg steps from the standing pose, other joints standing. Stop at -18: shank structure meets the trunk."
     },
     {
       "name": "left_hip_pitch",
@@ -123,13 +125,14 @@
       ],
       "limits_rad": [
         -1.5707963267948966,
-        1.5707963267948966
+        0.0
       ],
       "zero_rad": 0,
       "motor_id": 22,
       "motor_sign": 1,
       "encoder_home_offset_rad": null,
-      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending",
+      "limits_note": "R25 with covers trimmed (15 Oct 2026): CAD-verified clear of every part in 1 deg steps from the standing pose, other joints standing. Stop at 0: shank structure meets the trunk."
     },
     {
       "name": "left_knee",
@@ -146,14 +149,15 @@
         0
       ],
       "limits_rad": [
-        -1.5707963267948966,
-        1.5707963267948966
+        -1.4835298641951802,
+        0.8028514559173916
       ],
       "zero_rad": 0,
       "motor_id": 23,
       "motor_sign": 1,
       "encoder_home_offset_rad": null,
-      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending",
+      "limits_note": "R25 with covers trimmed (15 Oct 2026): CAD-verified clear of every part in 1 deg steps from the standing pose, other joints standing. Stops: foot meets the rear pelvis panel (-85), ankle servo meets the thigh (+46)."
     },
     {
       "name": "left_ankle",
@@ -170,14 +174,15 @@
         0
       ],
       "limits_rad": [
-        -1.5707963267948966,
-        1.5707963267948966
+        0.0,
+        1.361356816555577
       ],
       "zero_rad": 0,
       "motor_id": 24,
       "motor_sign": 1,
       "encoder_home_offset_rad": null,
-      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending",
+      "limits_note": "R25 with covers trimmed (15 Oct 2026): CAD-verified clear of every part in 1 deg steps from the standing pose, other joints standing. Stop at 78: foot meets the shank. Poses that ask for 80-89 deg settle at the stop."
     },
     {
       "name": "neck_pitch",
@@ -202,7 +207,7 @@
       "motor_sign": 1,
       "encoder_home_offset_rad": null,
       "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending",
-      "limits_note": "R25: CAD-verified clearance range, every 2.5 deg, head joints at zero; previous R20 model range -90..+60 deg was not clearance-checked"
+      "limits_note": "R25: CAD-verified clearance range, every 2.5 deg, head joints at zero; previous R20 model range -90..+60 deg was not clearance-checked 15 Oct 2026: clear in every combination with head yaw (+-90) and head roll (+-25) only up to +15 deg; beyond +15 a turned or rolled head can touch the rear torso."
     },
     {
       "name": "head_pitch",
@@ -219,14 +224,15 @@
         0
       ],
       "limits_rad": [
-        -1.5707963267948966,
-        1.5707963267948966
+        -0.6108652381980153,
+        1.4835298641951802
       ],
       "zero_rad": 0,
       "motor_id": 31,
       "motor_sign": 1,
       "encoder_home_offset_rad": null,
-      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending",
+      "limits_note": "R25 with covers trimmed (15 Oct 2026): CAD-verified clear of every part in 1 deg steps from the standing pose, other joints standing. Stops: head base meets the rear (-35) and front (+85) torso panels."
     },
     {
       "name": "head_yaw",
@@ -268,13 +274,14 @@
       ],
       "limits_rad": [
         -0.4363323129985824,
-        0.4363323129985824
+        0.19198621771937624
       ],
       "zero_rad": 0,
       "motor_id": 33,
       "motor_sign": 1,
       "encoder_home_offset_rad": null,
-      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending",
+      "limits_note": "R25 with covers trimmed (15 Oct 2026): CAD-verified clear of every part in 1 deg steps from the standing pose, other joints standing. Stop at +11: jaw bearing plug, keeper and pivot screw meet the head-yaw bracket and clamp cap (structural; full +25 needs the jaw bearing tower moved)."
     },
     {
       "name": "mouth",
@@ -298,7 +305,8 @@
       "motor_id": 34,
       "motor_sign": 1,
       "encoder_home_offset_rad": null,
-      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending",
+      "limits_note": "Motor range 0-30 deg. Open design item (15 Oct 2026): the R25 head rims block the jaw surrounds from 0 deg; trimming either part removes most of it, so the rim/surround interface needs a redesign."
     },
     {
       "name": "right_hip_yaw",
@@ -315,14 +323,15 @@
         -1
       ],
       "limits_rad": [
-        -0.5235987755982988,
-        0.4363323129985824
+        0.0,
+        0.33161255787892263
       ],
       "zero_rad": 0,
       "motor_id": 10,
       "motor_sign": 1,
       "encoder_home_offset_rad": null,
-      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending",
+      "limits_note": "R25 with covers trimmed (15 Oct 2026): CAD-verified clear of every part in 1 deg steps from the standing pose, other joints standing. Inner stop: the two hip brackets meet."
     },
     {
       "name": "right_hip_roll",
@@ -340,13 +349,14 @@
       ],
       "limits_rad": [
         -0.3839724354387525,
-        0.3839724354387525
+        0.3141592653589793
       ],
       "zero_rad": 0,
       "motor_id": 11,
       "motor_sign": 1,
       "encoder_home_offset_rad": null,
-      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending",
+      "limits_note": "R25 with covers trimmed (15 Oct 2026): CAD-verified clear of every part in 1 deg steps from the standing pose, other joints standing. Stop at +18: shank structure meets the trunk."
     },
     {
       "name": "right_hip_pitch",
@@ -363,14 +373,15 @@
         0
       ],
       "limits_rad": [
-        -1.5707963267948966,
+        0.0,
         1.5707963267948966
       ],
       "zero_rad": 0,
       "motor_id": 12,
       "motor_sign": 1,
       "encoder_home_offset_rad": null,
-      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending",
+      "limits_note": "R25 with covers trimmed (15 Oct 2026): CAD-verified clear of every part in 1 deg steps from the standing pose, other joints standing. Stop at 0: shank structure meets the trunk."
     },
     {
       "name": "right_knee",
@@ -387,14 +398,15 @@
         0
       ],
       "limits_rad": [
-        -1.5707963267948966,
-        1.5707963267948966
+        -0.8028514559173916,
+        1.4835298641951802
       ],
       "zero_rad": 0,
       "motor_id": 13,
       "motor_sign": 1,
       "encoder_home_offset_rad": null,
-      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending",
+      "limits_note": "R25 with covers trimmed (15 Oct 2026): CAD-verified clear of every part in 1 deg steps from the standing pose, other joints standing. Stops: ankle servo meets the thigh (-46), foot meets the rear pelvis panel (+85)."
     },
     {
       "name": "right_ankle",
@@ -411,14 +423,15 @@
         0
       ],
       "limits_rad": [
-        -1.5707963267948966,
-        1.5707963267948966
+        -1.361356816555577,
+        0.0
       ],
       "zero_rad": 0,
       "motor_id": 14,
       "motor_sign": 1,
       "encoder_home_offset_rad": null,
-      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending"
+      "calibration_status": "CAD zero and axis sign defined; physical encoder calibration pending",
+      "limits_note": "R25 with covers trimmed (15 Oct 2026): CAD-verified clear of every part in 1 deg steps from the standing pose, other joints standing. Stop at -78: foot meets the shank. Poses that ask for 80-89 deg settle at the stop."
     }
   ],
   "status": "R25 CAD and simulation study; illustrative poses, no trained policy or physical validation",
@@ -539,7 +552,7 @@
     "cad_accessory_included": true,
     "manifest_sha256": "2ade517752619691572c328da9cdca6852551786654b4d0940a11402d423ec1a"
   },
-  "cad_manifest_sha256": "b3374c774b56259211ec016ea583d7bd2369a98170a4a4c65ebaf02efdb6ed9a",
+  "cad_manifest_sha256": "9ce8ecb3e3b82cc4cc42a28f3efc18dffa78876c26857c9c4a2b51a8fca04265",
   "visual_mesh_source": "Complete R25 visible CAD assembly plus attributed provisional skate accessory; see asset notices",
   "mouth_motor_limits_rad": [
     0,

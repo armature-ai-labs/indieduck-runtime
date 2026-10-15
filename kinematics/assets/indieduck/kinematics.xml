@@ -3,15 +3,15 @@
   <worldbody>
     <body name="trunk_base" pos="0 0 0.143">
       <body name="left_hip_yaw_link" pos="0.02 0.0175 -0.026">
-        <joint name="left_hip_yaw" type="hinge" axis="0 0 -1" range="-0.436332313 0.5235987756" />
+        <joint name="left_hip_yaw" type="hinge" axis="0 0 -1" range="-0.3316125579 0" />
         <body name="left_hip_roll_link" pos="0.0145 0 -0.0145">
-          <joint name="left_hip_roll" type="hinge" axis="1 0 0" range="-0.3839724354 0.3839724354" />
+          <joint name="left_hip_roll" type="hinge" axis="1 0 0" range="-0.3141592654 0.3839724354" />
           <body name="left_hip_pitch_link" pos="-0.0165 0.0225 0">
-            <joint name="left_hip_pitch" type="hinge" axis="0 1 0" range="-1.570796327 1.570796327" />
+            <joint name="left_hip_pitch" type="hinge" axis="0 1 0" range="-1.570796327 0" />
             <body name="left_knee_link" pos="-0.03575 0 -0.022">
-              <joint name="left_knee" type="hinge" axis="0 -1 0" range="-1.570796327 1.570796327" />
+              <joint name="left_knee" type="hinge" axis="0 -1 0" range="-1.483529864 0.8028514559" />
               <body name="left_ankle_link" pos="0 0.024 -0.042">
-                <joint name="left_ankle" type="hinge" axis="0 1 0" range="-1.570796327 1.570796327" />
+                <joint name="left_ankle" type="hinge" axis="0 1 0" range="0 1.361356817" />
                 <site name="left_foot" pos="0.01275 0 -0.0385" size=".001" />
               </body>
               </body>
@@ -21,11 +21,11 @@
       <body name="neck_pitch_link" pos="0.041 0.0145 0.0095">
         <joint name="neck_pitch" type="hinge" axis="0 -1 0" range="-1.134464014 0.4799655443" />
         <body name="head_pitch_link" pos="0 0 0.05">
-          <joint name="head_pitch" type="hinge" axis="0 1 0" range="-1.570796327 1.570796327" />
+          <joint name="head_pitch" type="hinge" axis="0 1 0" range="-0.6108652382 1.483529864" />
           <body name="head_yaw_link" pos="0 -0.0145 0.01925">
             <joint name="head_yaw" type="hinge" axis="0 0 1" range="-1.570796327 1.570796327" />
             <body name="head_roll_link" pos="-0.0179 0 0.0145">
-              <joint name="head_roll" type="hinge" axis="-1 0 0" range="-0.436332313 0.436332313" />
+              <joint name="head_roll" type="hinge" axis="-1 0 0" range="-0.436332313 0.1919862177" />
               <body name="mouth_link" pos="0.01779999771 0 0.002599999237">
                 <joint name="mouth" type="hinge" axis="0 1 0" range="0 0.5235987756" />
                 </body>
@@ -101,15 +101,15 @@
           </body>
         </body>
       <body name="right_hip_yaw_link" pos="0.02 -0.0175 -0.026">
-        <joint name="right_hip_yaw" type="hinge" axis="0 0 -1" range="-0.5235987756 0.436332313" />
+        <joint name="right_hip_yaw" type="hinge" axis="0 0 -1" range="0 0.3316125579" />
         <body name="right_hip_roll_link" pos="0.0145 0 -0.0145">
-          <joint name="right_hip_roll" type="hinge" axis="1 0 0" range="-0.3839724354 0.3839724354" />
+          <joint name="right_hip_roll" type="hinge" axis="1 0 0" range="-0.3839724354 0.3141592654" />
           <body name="right_hip_pitch_link" pos="-0.0165 -0.0225 0">
-            <joint name="right_hip_pitch" type="hinge" axis="0 -1 0" range="-1.570796327 1.570796327" />
+            <joint name="right_hip_pitch" type="hinge" axis="0 -1 0" range="0 1.570796327" />
             <body name="right_knee_link" pos="-0.03575 0 -0.022">
-              <joint name="right_knee" type="hinge" axis="0 1 0" range="-1.570796327 1.570796327" />
+              <joint name="right_knee" type="hinge" axis="0 1 0" range="-0.8028514559 1.483529864" />
               <body name="right_ankle_link" pos="0 -0.024 -0.042">
-                <joint name="right_ankle" type="hinge" axis="0 -1 0" range="-1.570796327 1.570796327" />
+                <joint name="right_ankle" type="hinge" axis="0 -1 0" range="-1.361356817 0" />
                 <site name="right_foot" pos="0.01275 0 -0.0385" size=".001" />
               </body>
               </body>
