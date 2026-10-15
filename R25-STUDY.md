@@ -1,4 +1,4 @@
-# IndieDuck R25 runtime study
+# IndieDuck Cyber Edition runtime study (design R25)
 
 This release connects the Rust daemon to the canonical IndieDuck R25 native MuJoCo 3.10.0 server. It is a simulation contributor release. No trained policy or physical robot deployment is included.
 
@@ -15,7 +15,7 @@ uv run python -m mjlab_microduck.sim.body_server --headless
 From this repository:
 
 ```sh
-cargo run --locked -p robotd -- --sim 127.0.0.1:7801 --no-policy --socket /tmp/indieduck-r25.sock
+cargo run --locked -p robotd -- --sim 127.0.0.1:7801 --no-policy --socket /tmp/indieduck-cyber.sock
 ```
 
 The daemon adopts the simulator startup pose with torque off. The local JSON-RPC `robot.init` method explicitly enables simulation actuation and ramps toward the canonical standing pose; `robot.relax` disables it. Gravity-enabled execution does not demonstrate balance or walking. The server accepts one controlling connection.

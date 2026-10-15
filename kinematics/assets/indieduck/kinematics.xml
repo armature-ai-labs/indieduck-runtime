@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<mujoco model="indieduck-r25">
+<mujoco model="indieduck-cyber">
   <worldbody>
     <body name="trunk_base" pos="0 0 0.143">
       <body name="left_hip_yaw_link" pos="0.02 0.0175 -0.026">

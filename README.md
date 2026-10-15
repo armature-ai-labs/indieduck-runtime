@@ -1,5 +1,8 @@
 # IndieDuck Runtime
 
+The current edition is **IndieDuck Cyber Edition** (model `indieduck-cyber`, design R25) on platform P1. The runtime is shared by every edition; each edition supplies its own contract, identified by model ID, and the daemon refuses a mismatch.
+
+
 Onboard Rust source for the IndieDuck robotics project, maintained by Armature AI Labs.
 
 **Status: R25 simulation contributor study. The `robotd` daemon and its tested dependencies build and connect to the matching native IndieDuck simulator.** See [R25 setup and interfaces](R25-STUDY.md). The entire workspace and physical deployment remain unfinished. No trained IndieDuck walking, motor-bus timing or physical fit is claimed.

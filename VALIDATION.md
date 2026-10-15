@@ -1,8 +1,8 @@
 # Validation
 
-R25 simulation contributor study, verified locally on 14 October 2026 with Rust 1.91.1 and native MuJoCo 3.10.0 on macOS (arm64). No physical hardware was opened.
+IndieDuck Cyber Edition (design R25) simulation contributor study, verified locally on 14 October 2026 with Rust 1.91.1 and native MuJoCo 3.10.0 on macOS (arm64). No physical hardware was opened.
 
-- Model: `indieduck-r25` synced from indieduck-rl (contract SHA-256 `a1c6044911c601e44f3d1a039c5cbd81ddbc4ca9691908b430737f9266680c6a`), with 64 seeded native forward-kinematics cases regenerated against MuJoCo 3.10.0.
+- Model: `indieduck-cyber` synced from indieduck-rl (contract SHA-256 `935f4238fb830b11edda2f46b7179d4aeb27e216a8efd9c41d0c7befd7870e48`), with 64 seeded native forward-kinematics cases regenerated against MuJoCo 3.10.0.
 - Tests: the documented default suites pass, 345 tests in total (`cargo test --locked`), including kinematics against native MuJoCo on the R25 model and contract identity checks.
 - Release daemon: physical startup is rejected before any I/O. Against the native R25 server, 500 read/write round trips have a median of 0.35 ms (p99 0.87 ms). Steady control held 49.9 Hz with zero missed ticks and zero bus errors. Explicit initialisation reached native torque. The deliberate reset test removes the simulator mid-run: the daemon reports itself unhealthy after consecutive bus failures and requires a restart, as designed.
 - Evidence: `validation/native-runtime-r25.json`. R20 records remain in `validation/` and at the tag for that release.

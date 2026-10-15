@@ -36,7 +36,7 @@ fn indieduck_matches_mujoco_on_every_site_of_64_random_poses() {
         serde_json::from_str(include_str!("fixtures/fk_indieduck.json")).expect("fixture parses");
     let model = Model::indieduck();
 
-    assert_eq!(fixture.model_id, "indieduck-r25");
+    assert_eq!(fixture.model_id, "indieduck-cyber");
     assert_eq!(fixture.contract_sha256, include_str!("../../duck-control/assets/indieduck/contract.sha256").trim());
     assert_eq!(fixture.samples.len(), 64);
     for (i, sample) in fixture.samples.iter().enumerate() {

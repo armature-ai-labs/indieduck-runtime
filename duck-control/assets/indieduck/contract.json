@@ -1,5 +1,5 @@
 {
-  "model_id": "indieduck-r25",
+  "model_id": "indieduck-cyber",
   "contract_version": 2,
   "cad_revision": "R25",
   "units": {
@@ -552,7 +552,7 @@
     "cad_accessory_included": true,
     "manifest_sha256": "2ade517752619691572c328da9cdca6852551786654b4d0940a11402d423ec1a"
   },
-  "cad_manifest_sha256": "9ce8ecb3e3b82cc4cc42a28f3efc18dffa78876c26857c9c4a2b51a8fca04265",
+  "cad_manifest_sha256": "37b6721498f7e4a50e5e590d583f833ea7dddfa3fe281f85384d6973f1698df5",
   "visual_mesh_source": "Complete R25 visible CAD assembly plus attributed provisional skate accessory; see asset notices",
   "mouth_motor_limits_rad": [
     0,
@@ -576,5 +576,11 @@
     "kp_firmware_reference": 32,
     "mass_and_friction_status": "Body mass/contact estimates; BAM uses upstream m1 fitted friction. IndieDuck physical measurements pending"
   },
-  "cad_source_commit": "7bcdd1696516f9cff6bdefbc34e42f259c87749a"
+  "cad_source_commit": "7bcdd1696516f9cff6bdefbc34e42f259c87749a",
+  "edition": {
+    "id": "cyber",
+    "name": "IndieDuck Cyber Edition",
+    "platform": "P1",
+    "design_revision": "R25"
+  }
 }

@@ -73,7 +73,7 @@ if args.probe:
     measured = subprocess.check_output([str(args.probe.resolve()), f'127.0.0.1:{server.server_address[1]}'], text=True)
     report['native_protocol_latency'] = json.loads(measured)
 
-with tempfile.TemporaryDirectory(prefix='indieduck-r25-') as directory:
+with tempfile.TemporaryDirectory(prefix='indieduck-cyber-') as directory:
     path = Path(directory) / 'robotd.sock'
     log_path = Path(directory) / 'daemon.log'
     with log_path.open('w') as log:

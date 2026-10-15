@@ -23,9 +23,13 @@ Neither selected upstream tree contains Git submodule entries or a `.gitmodules`
 
 Upstream developer paths in test fixtures and examples remain unchanged for source fidelity. They are public upstream examples, not paths from an IndieDuck maintainer's machine. Some manual scripts retain upstream-specific defaults that need review before use. No GitHub Actions workflows or deployment keys are included.
 
+## Cyber Edition (15 October 2026)
+
+Model `indieduck-cyber` (IndieDuck Cyber Edition, design R25, platform P1); contract synced from indieduck-rl 46ea240.
+
 ## R25 simulation contributor release (14 October 2026)
 
-The R25 contract (model `indieduck-r25`) is generated from the canonical indieduck-rl model built on the R25 CAD exterior with the unchanged R20 joint chain. The sync script now takes the revision from the canonical contract; neck pitch limits are the CAD-verified -65 to +27.5 degrees. No change to the protocol, jaw mapping or startup guard.
+The R25 contract (model `indieduck-cyber`) is generated from the canonical indieduck-rl model built on the R25 CAD exterior with the unchanged R20 joint chain. The sync script now takes the revision from the canonical contract; neck pitch limits are the CAD-verified -65 to +27.5 degrees. No change to the protocol, jaw mapping or startup guard.
 
 ## R20 simulation contributor release
 
