@@ -21,3 +21,5 @@ secret*
 # Playground and scratch state (see updater/examples/playground.rs).
 /verify
 .DS_Store
+# iCloud Drive conflict copies
+* 2.*
