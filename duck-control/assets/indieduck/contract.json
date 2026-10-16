@@ -552,7 +552,7 @@
     "cad_accessory_included": true,
     "manifest_sha256": "2ade517752619691572c328da9cdca6852551786654b4d0940a11402d423ec1a"
   },
-  "cad_manifest_sha256": "d0072b5dbabb252b8683d3517dd62de74bde5bff9797c3ba34df7543882707bd",
+  "cad_manifest_sha256": "5c60173fe2c854e5dc9c8539071012d41f3ced9e10afb621270c0a81708be8e7",
   "visual_mesh_source": "Complete R25 visible CAD assembly plus attributed provisional skate accessory; see asset notices",
   "mouth_motor_limits_rad": [
     0,
