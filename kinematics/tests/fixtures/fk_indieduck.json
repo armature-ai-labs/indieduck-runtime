@@ -1,7 +1,7 @@
 {
   "model_id": "indieduck-cyber",
   "mujoco_version": "3.10.0",
-  "contract_sha256": "935f4238fb830b11edda2f46b7179d4aeb27e216a8efd9c41d0c7befd7870e48",
+  "contract_sha256": "7e81eb31f3bb57ff67419a1b9ee3908a8d79ce0eef9fdc2dc4c80016da604027",
   "seed": 7,
   "samples": [
     {
